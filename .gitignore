@@ -1,0 +1,9 @@
+.DS_store
+*.sav
+
+# note book stuff
+textDetect/__pycache__
+textDetect/.ipynb_checkpoints
+# vscode
+.vscode
+
