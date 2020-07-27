@@ -4,6 +4,7 @@
 # note book stuff
 textDetect/__pycache__
 textDetect/.ipynb_checkpoints
+textDetect/data
 # vscode
 .vscode
 
