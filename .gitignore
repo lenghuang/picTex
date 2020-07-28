@@ -4,7 +4,9 @@
 # note book stuff
 textDetect/__pycache__
 textDetect/.ipynb_checkpoints
-textDetect/data
+# ignore datasets
+textDetect/datasets/cifar_data
+textDetect/datasets/CROHME_full_v2
 # vscode
 .vscode
 
