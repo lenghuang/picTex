@@ -5,9 +5,11 @@
 textDetect/__pycache__
 textDetect/.ipynb_checkpoints
 # ignore datasets
-textDetect/datasets/cifar_data
-textDetect/datasets/CROHME_full_v2
-textDetect/datasets/our_images_final
+# textDetect/datasets/cifar_data
+# textDetect/datasets/CROHME_full_v2
+# textDetect/datasets/our_images_final
+textDetect/datasets
+
 # vscode
 .vscode
 
