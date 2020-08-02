@@ -2,13 +2,13 @@
 *.sav
 
 # note book stuff
-textDetect/__pycache__
-textDetect/.ipynb_checkpoints
+textDetectModel/__pycache__
+textDetectModel/.ipynb_checkpoints
 # ignore datasets
-# textDetect/datasets/cifar_data
-# textDetect/datasets/CROHME_full_v2
-# textDetect/datasets/our_images_final
-textDetect/datasets
+# textDetectModel/datasets/cifar_data
+# textDetectModel/datasets/CROHME_full_v2
+# textDetectModel/datasets/our_images_final
+textDetectModel/datasets
 
 # vscode
 .vscode
