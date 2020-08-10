@@ -119,7 +119,7 @@ def objectDetection(url):
 
             if obj[3] > currentLow:
                 #if the high is below the low, switch to a new line
-                if not currentList == []:
+                if currentList != []:
                     currentList.sort(key= lambda x: x[2], reverse=True)
                     returnList.append(currentList)
                 currentList = []
