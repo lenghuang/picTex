@@ -4,9 +4,11 @@ import argparse
 
 import cv2
 from PIL import Image
+
 global thresh
 global erode
 global dilate
+
 
 def objectDetection(url):
     """
@@ -21,13 +23,13 @@ def objectDetection(url):
         Load the image.
         """
         if exists(url):
-            img = cv2.imread(url) #local repository
+            img = cv2.imread(url)  # local repository
         else:
-            img = Image.open(urlopen(url)) #online
+            img = Image.open(urlopen(url))  # online
 
         img = cv2.resize(img, dsize=(1050, 1485), interpolation=cv2.INTER_AREA)
-        #img = cv2.resize(img, dsize=(200, 300), interpolation=cv2.INTER_AREA)
-        #Respects the dimensions of A4 paper
+        # img = cv2.resize(img, dsize=(200, 300), interpolation=cv2.INTER_AREA)
+        # Respects the dimensions of A4 paper
 
         """
         Convert the image to a black and white mask.
@@ -36,6 +38,7 @@ def objectDetection(url):
         thresh = 140
         dilate = 1
         erode = 0
+
         def change_thresh(val):
             global thresh
             thresh = val
@@ -79,10 +82,10 @@ def objectDetection(url):
         """
         Find the Contours.
         """
-        #contours, hierarchy = cv2.findContours(thresh, 2, 1)
-        contours, hierarchy = cv2.findContours(thresh,
-                                               mode=cv2.RETR_LIST,
-                                               method=cv2.CHAIN_APPROX_NONE)
+        # contours, hierarchy = cv2.findContours(thresh, 2, 1)
+        contours, hierarchy = cv2.findContours(
+            thresh, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_NONE
+        )
         print("THERE ARE %d OBJECTS" % len(contours))
         bboxs = []
 
@@ -90,15 +93,13 @@ def objectDetection(url):
             area = cv2.contourArea(cnt)
             x, y, w, h = cv2.boundingRect(cnt)
             if area > 10:
-                im2 = img[y - 10:y + h - 10, x:x + w]
-                im2 = cv2.resize(im2, dsize=(200, 200),
-                                 interpolation=cv2.INTER_LINEAR)
+                im2 = img[y - 10 : y + h - 10, x : x + w]
+                im2 = cv2.resize(im2, dsize=(200, 200), interpolation=cv2.INTER_LINEAR)
 
                 # cv2.imshow("img", im2)
                 # cv2.waitKey(0)
-                cv2.rectangle(img, (x, y), (x + w, y + h),
-                              (0, 255, 0), 1)
-                bboxs.append([(x)+w/2,(y)+h/2, x, y, w, h, y+h])
+                cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 1)
+                bboxs.append([(x) + w / 2, (y) + h / 2, x, y, w, h, y + h])
 
         cv2.imshow("Bounding Boxes", img)
         cv2.waitKey(0)
@@ -108,8 +109,8 @@ def objectDetection(url):
         Top Left is (0,0).
         """
         heights = [i[5] for i in bboxs]
-        avgHeight = sum(heights)/len(heights)
-        bboxs.sort(key = lambda x: x[3])
+        avgHeight = sum(heights) / len(heights)
+        bboxs.sort(key=lambda x: x[3])
 
         returnList = []
 
@@ -118,9 +119,9 @@ def objectDetection(url):
         for obj in bboxs:
 
             if obj[3] > currentLow:
-                #if the high is below the low, switch to a new line
+                # if the high is below the low, switch to a new line
                 if currentList != []:
-                    currentList.sort(key= lambda x: x[2], reverse=True)
+                    currentList.sort(key=lambda x: x[2], reverse=True)
                     returnList.append(currentList)
                 currentList = []
                 currentLow = obj[6]
@@ -131,12 +132,12 @@ def objectDetection(url):
                 currentList.append(obj)
 
         colors = [
-            (255,   0,   0),
-            (  0, 255,   0),
-            (  0,   0, 255),
-            (255, 255,   0),
-            (  0, 255, 255),
-            (255,   0, 255),
+            (255, 0, 0),
+            (0, 255, 0),
+            (0, 0, 255),
+            (255, 255, 0),
+            (0, 255, 255),
+            (255, 0, 255),
             (255, 255, 255),
         ]
         for i in range(7):
@@ -145,7 +146,7 @@ def objectDetection(url):
                 y = box[3]
                 w = box[4]
                 h = box[5]
-                cv2.rectangle(img, (x, y), (x+w, y+h), colors[i], 2)
+                cv2.rectangle(img, (x, y), (x + w, y + h), colors[i], 2)
 
         cv2.imshow("One Line", img)
         cv2.waitKey(0)
@@ -156,4 +157,5 @@ def objectDetection(url):
 
 
 if __name__ == "__main__":
-    objectDetection('data/IMG_7311.jpg')
+    objectDetection("data/IMG_7311.jpg")
+
