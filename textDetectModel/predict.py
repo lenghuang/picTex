@@ -8,7 +8,7 @@ from PIL import Image
 import requests
 from io import BytesIO
 
-model_path = "./models/custom_label_100.pt"
+model_path = "./models/pictex_text_detect.pt"
 image_path = "./datasets/our_images_final/a/fig0.png"
 
 # Transforms for prepping data to fit our model
