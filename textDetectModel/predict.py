@@ -8,7 +8,7 @@ from PIL import Image
 import requests
 from io import BytesIO
 
-model_path = "./models/pictex_text_detect.pth"
+model_path = "./models/pictex_text_detect.pt"
 image_path = "./datasets/our_images_final/a/fig0.png"
 
 # Transforms for prepping data to fit our model
@@ -33,6 +33,7 @@ def predict(image_path, local=False):
     image = image_path if local else BytesIO(requests.get(image_path).content)
     image = transform(Image.open(image)).unsqueeze(0)
     outputs = model(image)
+    print(outputs)
     values, indices = outputs.topk(5)
     print("Top predictions are:")
     for i, index in enumerate(indices[0]):
