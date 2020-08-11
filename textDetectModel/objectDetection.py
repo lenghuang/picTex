@@ -1,7 +1,6 @@
 from os.path import exists
 from urllib.request import urlopen
 import argparse
-
 import cv2
 from PIL import Image
 
@@ -39,39 +38,39 @@ def objectDetection(url):
         dilate = 1
         erode = 0
 
-        def change_thresh(val):
-            global thresh
-            thresh = val
-            process()
+        # def change_thresh(val):
+        #     global thresh
+        #     thresh = val
+        #     process()
 
-        def change_dilate(val):
-            global dilate
-            dilate = val
-            process()
+        # def change_dilate(val):
+        #     global dilate
+        #     dilate = val
+        #     process()
 
-        def change_erode(val):
-            global erode
-            erode = val
-            process()
+        # def change_erode(val):
+        #     global erode
+        #     erode = val
+        #     process()
 
-        # function that processes the image
-        def process():
-            global thresh
-            global erode
-            global dilate
-            temp = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            ret, temp = cv2.threshold(temp, thresh, 255, cv2.THRESH_BINARY_INV)
-            temp = cv2.erode(temp, kernel=(1, 5), iterations=erode)
-            temp = cv2.dilate(temp, kernel=(1, 5), iterations=dilate)
-            cv2.imshow(named_window, temp)
+        # # function that processes the image
+        # def process():
+        #     global thresh
+        #     global erode
+        #     global dilate
+        #     temp = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        #     ret, temp = cv2.threshold(temp, thresh, 255, cv2.THRESH_BINARY_INV)
+        #     temp = cv2.erode(temp, kernel=(1, 5), iterations=erode)
+        #     temp = cv2.dilate(temp, kernel=(1, 5), iterations=dilate)
+        #     cv2.imshow(named_window, temp)
 
-        cv2.namedWindow(named_window)
+        # cv2.namedWindow(named_window)
 
-        cv2.createTrackbar("thresh: ", named_window, 0, 255, change_thresh)
-        cv2.createTrackbar("erode: ", named_window, 0, 255, change_erode)
-        cv2.createTrackbar("dilate: ", named_window, 0, 255, change_dilate)
-        process()
-        cv2.waitKey(0)
+        # cv2.createTrackbar("thresh: ", named_window, 0, 255, change_thresh)
+        # cv2.createTrackbar("erode: ", named_window, 0, 255, change_erode)
+        # cv2.createTrackbar("dilate: ", named_window, 0, 255, change_dilate)
+        # process()
+        # cv2.waitKey(0)
 
         temp = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         ret, temp = cv2.threshold(temp, thresh, 255, cv2.THRESH_BINARY_INV)
@@ -101,8 +100,8 @@ def objectDetection(url):
                 cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 1)
                 bboxs.append([(x) + w / 2, (y) + h / 2, x, y, w, h, y + h])
 
-        cv2.imshow("Bounding Boxes", img)
-        cv2.waitKey(0)
+        # cv2.imshow("Bounding Boxes", img)
+        # cv2.waitKey(0)
 
         """
         Sort objects found by lines.
@@ -148,14 +147,16 @@ def objectDetection(url):
                 h = box[5]
                 cv2.rectangle(img, (x, y), (x + w, y + h), colors[i], 2)
 
-        cv2.imshow("One Line", img)
-        cv2.waitKey(0)
+        # cv2.imshow("One Line", img)
+        # cv2.waitKey(0)
 
+        # print(returnList)
         return returnList
     except ValueError:
+        print("valueError")
         return []
 
 
 if __name__ == "__main__":
-    objectDetection("data/IMG_7311.jpg")
+    objectDetection("examples/IMG_7311.jpg")
 
