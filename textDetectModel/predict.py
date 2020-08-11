@@ -22,7 +22,7 @@ transform = transforms.Compose(
 )
 
 
-def predict(image_path, local=False):
+def textPredict(image_path, local=False):
     # Make new CNN object and load model
     model = Net()
     model.load_state_dict(torch.load(model_path))
@@ -37,19 +37,18 @@ def predict(image_path, local=False):
     print("Top predictions are:")
     for i, index in enumerate(indices[0]):
         print(f"{classes[index]} with value: {values[0][i]:>20}")
+    return classes[indices[0][0]]
 
 
-# local image
-predict(image_path, True)
-predict("./our_images_final/z/fig0.png", local=True)
-# number 1
-#predict(
-#    "https://printables.space/files/uploads/download-and-print/large
-#    -printable-numbers/1-a4-1200x1697.jpg"
-#)
-# number 5
-#predict(
-#    "https://gamedata.britishcouncil.org/sites/default/files/attachment
-#    /number-5_2.jpg",
-#)
+if __name__ == "__main__":
+    # local image
+    textPredict(image_path, True)
+    # number 1
+    textPredict(
+        "https://printables.space/files/uploads/download-and-print/large-printable-numbers/1-a4-1200x1697.jpg"
+    )
+    # number 5
+    textPredict(
+        "https://gamedata.britishcouncil.org/sites/default/files/attachment/number-5_2.jpg",
+    )
 
