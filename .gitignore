@@ -1,10 +1,11 @@
 .DS_store
 *.sav
-
+*.png
 # note book stuff
 textDetectModel/__pycache__
 textDetectModel/.ipynb_checkpoints
 # ignore datasets
+# ignore our_images_final
 # textDetectModel/datasets/cifar_data
 # textDetectModel/datasets/CROHME_full_v2
 # textDetectModel/datasets/our_images_final

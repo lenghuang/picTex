@@ -9,7 +9,7 @@ import requests
 from io import BytesIO
 
 model_path = "./models/pictex_text_detect.pt"
-image_path = "./datasets/our_images_final/a/fig0.png"
+image_path = "./our_images_final/a/fig0.png"
 
 # Transforms for prepping data to fit our model
 transform = transforms.Compose(
@@ -33,7 +33,6 @@ def predict(image_path, local=False):
     image = image_path if local else BytesIO(requests.get(image_path).content)
     image = transform(Image.open(image)).unsqueeze(0)
     outputs = model(image)
-    print(outputs)
     values, indices = outputs.topk(5)
     print("Top predictions are:")
     for i, index in enumerate(indices[0]):
@@ -42,12 +41,15 @@ def predict(image_path, local=False):
 
 # local image
 predict(image_path, True)
+predict("./our_images_final/z/fig0.png", local=True)
 # number 1
-predict(
-    "https://printables.space/files/uploads/download-and-print/large-printable-numbers/1-a4-1200x1697.jpg"
-)
+#predict(
+#    "https://printables.space/files/uploads/download-and-print/large
+#    -printable-numbers/1-a4-1200x1697.jpg"
+#)
 # number 5
-predict(
-    "https://gamedata.britishcouncil.org/sites/default/files/attachment/number-5_2.jpg",
-)
+#predict(
+#    "https://gamedata.britishcouncil.org/sites/default/files/attachment
+#    /number-5_2.jpg",
+#)
 
