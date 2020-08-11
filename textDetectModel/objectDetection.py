@@ -1,8 +1,12 @@
 from os.path import exists
 from urllib.request import urlopen
+
 import argparse
 import cv2
+from matplotlib import cm
+import numpy as np
 from PIL import Image
+import time
 
 global thresh
 global erode
@@ -23,8 +27,10 @@ def objectDetection(url):
         """
         if exists(url):
             img = cv2.imread(url)  # local repository
+            imgPIL = Image.open(url)
         else:
             img = Image.open(urlopen(url))  # online
+            imgPIL = img
 
         img = cv2.resize(img, dsize=(1050, 1485), interpolation=cv2.INTER_AREA)
         # img = cv2.resize(img, dsize=(200, 300), interpolation=cv2.INTER_AREA)
@@ -92,13 +98,16 @@ def objectDetection(url):
             area = cv2.contourArea(cnt)
             x, y, w, h = cv2.boundingRect(cnt)
             if area > 10:
-                im2 = img[y - 10 : y + h - 10, x : x + w]
+                im2 = img[y : y + h, x : x + w]
                 im2 = cv2.resize(im2, dsize=(200, 200), interpolation=cv2.INTER_LINEAR)
 
-                # cv2.imshow("img", im2)
-                # cv2.waitKey(0)
+                # im3 = imgPIL.crop((x, y, x + w, y + h)).resize((200, 200))
+                # im3.show()
+                cv2.imshow("img", im2)
+                cv2.waitKey(0)
                 cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 1)
                 bboxs.append([(x) + w / 2, (y) + h / 2, x, y, w, h, y + h])
+                time.sleep(3)
 
         # cv2.imshow("Bounding Boxes", img)
         # cv2.waitKey(0)

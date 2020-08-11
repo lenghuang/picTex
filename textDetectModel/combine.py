@@ -4,9 +4,14 @@ from PIL import Image
 from torchvision import transforms
 import requests
 from io import BytesIO
+import time
 
+# https://pytorch.org/docs/stable/torchvision/transforms.html
+# Interpolate?
 # Transforms for prepping data to fit our model
-transform = transforms.Compose([transforms.Grayscale(1)])
+transform = transforms.Compose(
+    [transforms.Grayscale(1), transforms.Resize((1050, 1485))]
+)
 
 # Get's the top left x, top left y, width, and height of
 # a Zach box or bbarray (bounding box array)
@@ -20,10 +25,12 @@ def outputText(url, local=True):
     bounding_list = objectDetection(url)
     image = url if local else BytesIO(requests.get(url).content)
     image = transform(Image.open(image))
-    first = bounding_list[4][10]
-    x, y, w, h = getCut(first)
-    cut_image = image.crop((x, y, x + w, y + h)).resize((200, 200))
-    cut_image.show()
+    for row in bounding_list:
+        for img in row:
+            x, y, w, h = getCut(img)
+            cut_image = image.crop((x, y, x + w, y + h)).resize((200, 200))
+            cut_image.show()
+            time.sleep(2)
 
     # character_list = list(map(lambda img: textPredict(img, local=True), image_list))
     # print(character_list)
