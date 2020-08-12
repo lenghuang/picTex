@@ -8,7 +8,7 @@ from PIL import Image
 import requests
 from io import BytesIO
 
-model_path = "./models/custom_label_1000.pt"
+model_path = "./models/custom_label_100.pt"
 image_path = "./our_images_final/a/fig0.png"
 
 # Transforms for prepping data to fit our model
@@ -22,22 +22,34 @@ transform = transforms.Compose(
 )
 
 
-def textPredict(image_path, local=False):
-    # Make new CNN object and load model
+def textPredict(image_path, local=False, is_path = True):
     model = Net()
     model.load_state_dict(torch.load(model_path))
-    # Load image from local
-    # image = Image.open(image_path)
-    # Load image from url
-    # response = requests.get(image_path)
-    image = image_path if local else BytesIO(requests.get(image_path).content)
-    image = transform(Image.open(image)).unsqueeze(0)
-    outputs = model(image)
-    values, indices = outputs.topk(5)
-    print("Top predictions are:")
-    for i, index in enumerate(indices[0]):
-        print(f"{classes[index]} with value: {values[0][i]:>20}")
-    return classes[indices[0][0]]
+    model.eval()
+    if is_path:
+        # Make new CNN object and load model
+        # Load image from local
+        # image = Image.open(image_path)
+        # Load image from url
+        # response = requests.get(image_path)
+        image = image_path if local else BytesIO(requests.get(image_path).content)
+        image = transform(Image.open(image)).unsqueeze(0)
+        outputs = model(image)
+        values, indices = outputs.topk(5)
+        print("Top predictions are:")
+        for i, index in enumerate(indices[0]):
+            print(f"{classes[index]} with value: {values[0][i]:>20}")
+        return classes[indices[0][0]]
+    else:
+        img = image_path
+        img = transform(img).unsqueeze(0)
+        outputs = model(img)
+        values, indices = outputs.topk(5)
+        print("Top predictions are:")
+        for i, index in enumerate(indices[0]):
+            print(f"{classes[index]} with value: {values[0][i]:>20}")
+        return classes[indices[0][0]]
+
 
 
 if __name__ == "__main__":

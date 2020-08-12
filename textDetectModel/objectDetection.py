@@ -16,73 +16,49 @@ global dilate
 def objectDetection(url):
     """
     REQUIRES: url is a valid address to a local or online repository
-    ENSURES: list of images ordered by x,y position
+    ENSURES: list of PIL images ordered by x,y position
     """
-    global thresh
-    global erode
-    global dilate
     try:
         """
         Load the image.
         """
         if exists(url):
             img = cv2.imread(url)  # local repository
-            imgPIL = Image.open(url)
         else:
-            img = Image.open(urlopen(url))  # online
-            imgPIL = img
+            imgPIL = Image.open(urlopen(url))  # online
+            img = np.array(imgPIL)
 
         img = cv2.resize(img, dsize=(1050, 1485), interpolation=cv2.INTER_AREA)
-        # img = cv2.resize(img, dsize=(200, 300), interpolation=cv2.INTER_AREA)
+        imgPIL = Image.fromarray(img)
+        img_temp = img.copy()
+        # (1050, 1485)
         # Respects the dimensions of A4 paper
 
         """
         Convert the image to a black and white mask.
         """
-        named_window = "image"
-        thresh = 140
+        temp = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        """
+        Get the threshold
+        """
+        total_pixel = temp.flatten()
+        white_list = list(filter(lambda x: x>10, total_pixel))
+        avg_white = sum(white_list)/len(white_list)
+        for i in range(2):
+            white_list = list(filter(lambda x: x < avg_white, white_list))
+            avg_white = sum(white_list)/len(white_list)
+
+        thresh = avg_white
         dilate = 1
         erode = 0
 
-        # def change_thresh(val):
-        #     global thresh
-        #     thresh = val
-        #     process()
-
-        # def change_dilate(val):
-        #     global dilate
-        #     dilate = val
-        #     process()
-
-        # def change_erode(val):
-        #     global erode
-        #     erode = val
-        #     process()
-
-        # # function that processes the image
-        # def process():
-        #     global thresh
-        #     global erode
-        #     global dilate
-        #     temp = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        #     ret, temp = cv2.threshold(temp, thresh, 255, cv2.THRESH_BINARY_INV)
-        #     temp = cv2.erode(temp, kernel=(1, 5), iterations=erode)
-        #     temp = cv2.dilate(temp, kernel=(1, 5), iterations=dilate)
-        #     cv2.imshow(named_window, temp)
-
-        # cv2.namedWindow(named_window)
-
-        # cv2.createTrackbar("thresh: ", named_window, 0, 255, change_thresh)
-        # cv2.createTrackbar("erode: ", named_window, 0, 255, change_erode)
-        # cv2.createTrackbar("dilate: ", named_window, 0, 255, change_dilate)
-        # process()
-        # cv2.waitKey(0)
-
-        temp = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         ret, temp = cv2.threshold(temp, thresh, 255, cv2.THRESH_BINARY_INV)
         temp = cv2.erode(temp, kernel=(5, 5), iterations=erode)
         temp = cv2.dilate(temp, kernel=(5, 5), iterations=dilate)
         thresh = temp
+
+        threshPIL = Image.fromarray(thresh)
+        threshPIL.show(title="threshold_image")
 
         """
         Find the Contours.
@@ -91,33 +67,31 @@ def objectDetection(url):
         contours, hierarchy = cv2.findContours(
             thresh, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_NONE
         )
-        print("THERE ARE %d OBJECTS" % len(contours))
+        print("THERE ARE %d POSSIBLE OBJECTS" % len(contours))
         bboxs = []
-
         for cnt in contours:
             area = cv2.contourArea(cnt)
             x, y, w, h = cv2.boundingRect(cnt)
             if area > 10:
-                im2 = img[y : y + h, x : x + w]
-                im2 = cv2.resize(im2, dsize=(200, 200), interpolation=cv2.INTER_LINEAR)
+                im2 = img_temp[y:y+h, x:x+w]
+                im2 = cv2.resize(im2, dsize=(200, 200),
+                                 interpolation=cv2.INTER_LINEAR_EXACT)
 
-                # im3 = imgPIL.crop((x, y, x + w, y + h)).resize((200, 200))
-                # im3.show()
-                cv2.imshow("img", im2)
-                cv2.waitKey(0)
-                cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 1)
-                bboxs.append([(x) + w / 2, (y) + h / 2, x, y, w, h, y + h])
-                time.sleep(3)
+                #im3 = imgPIL.crop((x, y, x + w, y + h)).resize((200, 200))
 
-        # cv2.imshow("Bounding Boxes", img)
-        # cv2.waitKey(0)
+                cv2.rectangle(img, (x, y), (x + w, y + h), (0,255,0), 1)
+                bboxs.append([(x) + w / 2, (y) + h / 2, x, y, w, h, y + h,
+                              Image.fromarray(im2)])
+
+        bboxPIL = Image.fromarray(img)
+        bboxPIL.show(title="Bounding Boxes")
 
         """
         Sort objects found by lines.
         Top Left is (0,0).
         """
-        heights = [i[5] for i in bboxs]
-        avgHeight = sum(heights) / len(heights)
+
+
         bboxs.sort(key=lambda x: x[3])
 
         returnList = []
@@ -156,13 +130,11 @@ def objectDetection(url):
                 h = box[5]
                 cv2.rectangle(img, (x, y), (x + w, y + h), colors[i], 2)
 
-        # cv2.imshow("One Line", img)
-        # cv2.waitKey(0)
-
-        # print(returnList)
+        coloredPIL = Image.fromarray(img)
+        coloredPIL.show(title="Colored Lines.png")
         return returnList
     except ValueError:
-        print("valueError")
+        print("ValueError")
         return []
 
 

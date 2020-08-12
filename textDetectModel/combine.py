@@ -9,31 +9,23 @@ import time
 # https://pytorch.org/docs/stable/torchvision/transforms.html
 # Interpolate?
 # Transforms for prepping data to fit our model
-transform = transforms.Compose(
-    [transforms.Grayscale(1), transforms.Resize((1050, 1485))]
-)
-
-# Get's the top left x, top left y, width, and height of
-# a Zach box or bbarray (bounding box array)
-def getCut(bbarray):
-    return (bbarray[2], bbarray[3], bbarray[4], bbarray[5])
-
 
 def outputText(url, local=True):
     # bounding_list is a list of
-    # [center x, center y, top left x, top left y, width, height, width + height]
+    # [0: center x,
+    #  1: center y,
+    #  2: top left x,
+    #  3: top left y,
+    #  4: width,
+    #  5: height,
+    #  6: width + height,
+    #  7: img]
     bounding_list = objectDetection(url)
-    image = url if local else BytesIO(requests.get(url).content)
-    image = transform(Image.open(image))
-    for row in bounding_list:
-        for img in row:
-            x, y, w, h = getCut(img)
-            cut_image = image.crop((x, y, x + w, y + h)).resize((200, 200))
-            cut_image.show()
-            time.sleep(2)
-
-    # character_list = list(map(lambda img: textPredict(img, local=True), image_list))
-    # print(character_list)
+    for obj in bounding_list[3]: # row 3
+        img = obj[7]
+        img.show()
+        character_list = textPredict(img, is_path = False)
+        print(character_list)
 
 
 if __name__ == "__main__":
