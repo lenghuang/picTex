@@ -45,9 +45,9 @@ def textPredict(image_path, local=False, is_path = True):
         img = transform(img).unsqueeze(0)
         outputs = model(img)
         values, indices = outputs.topk(5)
-        print("Top predictions are:")
-        for i, index in enumerate(indices[0]):
-            print(f"{classes[index]} with value: {values[0][i]:>20}")
+        #print("Top predictions are:")
+        #for i, index in enumerate(indices[0]):
+        #    print(f"{classes[index]} with value: {values[0][i]:>20}")
         return classes[indices[0][0]]
 
 
