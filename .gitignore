@@ -1,5 +1,6 @@
 .DS_store
 *.sav
+*.jpg
 *.png
 # note book stuff
 textDetectModel/__pycache__

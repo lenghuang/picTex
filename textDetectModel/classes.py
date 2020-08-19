@@ -1,4 +1,4 @@
-classes = [
+"""classes = [
     "(",
     ")",
     "+",
@@ -41,5 +41,11 @@ classes = [
     "x",
     "y",
     "z",
-]
+]"""
 
+import os
+
+data_dir = "./final/"
+classes = os.listdir(data_dir)
+num_classes = len(classes)
+classes = sorted(classes)

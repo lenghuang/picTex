@@ -8,8 +8,9 @@ from PIL import Image
 import requests
 from io import BytesIO
 
-model_path = "./models/custom_label_100.pt"
-image_path = "./our_images_final/a/fig0.png"
+model_path = "./models/custom_label_1000.pt"
+tempchar = 'r'
+image_path = "./final/" + tempchar+'/' + tempchar + "_fig_37.jpg"
 
 # Transforms for prepping data to fit our model
 transform = transforms.Compose(
@@ -56,11 +57,13 @@ if __name__ == "__main__":
     # local image
     textPredict(image_path, True)
     # number 1
-    textPredict(
-        "https://printables.space/files/uploads/download-and-print/large-printable-numbers/1-a4-1200x1697.jpg"
-    )
+    #textPredict(
+    #    "https://printables.space/files/uploads/download-and-print/large
+    #    -printable-numbers/1-a4-1200x1697.jpg"
+    #)
     # number 5
-    textPredict(
-        "https://gamedata.britishcouncil.org/sites/default/files/attachment/number-5_2.jpg",
-    )
+    #textPredict(
+    #    "https://gamedata.britishcouncil.org/sites/default/files/attachment
+    #    /number-5_2.jpg",
+    #)
 
