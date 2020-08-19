@@ -1,0 +1,51 @@
+"""classes = [
+    "(",
+    ")",
+    "+",
+    ",",
+    "=",
+    "a",
+    "ast",
+    "b",
+    "c",
+    "cong",
+    "d",
+    "e",
+    "f",
+    "full_stop",
+    "g",
+    "geq",
+    "h",
+    "i",
+    "iff",
+    "implies",
+    "j",
+    "k",
+    "l",
+    "leq",
+    "m",
+    "minus",
+    "n",
+    "neq",
+    "o",
+    "p",
+    "plus",
+    "q",
+    "r",
+    "s",
+    "sum",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+]"""
+
+import os
+
+data_dir = "./final/"
+classes = os.listdir(data_dir)
+num_classes = len(classes)
+classes = sorted(classes)
