@@ -24,62 +24,66 @@ struct ContentView: View {
                 Text("Select Image").font(.system(size: 32))
             }).sheet(isPresented: $isShowingImagePicker, content:{ ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox)
             })
-        }.onAppear {
-            self.performOnAppear()
+            Button(action: {
+                uploadSelectedImage(image: self.imageInBox)
+            }, label: {
+                Text("Upload to S3").font(.system(size:32))
+            })
+                .padding(.top, 10.0)
         }
     }
+}
+
+struct ImagePickerView: UIViewControllerRepresentable {
     
-    struct ImagePickerView: UIViewControllerRepresentable {
+    @Binding var isPresented: Bool
+    @Binding var selectedImage: UIImage
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIViewController {
+        let controller = UIImagePickerController()
+        controller.delegate = context.coordinator
+        return controller
+    }
+    
+    func makeCoordinator() -> ImagePickerView.Coordinator {
+        return Coordinator(parent: self)
+    }
+    
+    // this is the tricky part
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         
-        @Binding var isPresented: Bool
-        @Binding var selectedImage: UIImage
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIViewController {
-            let controller = UIImagePickerController()
-            controller.delegate = context.coordinator
-            return controller
+        let parent: ImagePickerView
+        init(parent: ImagePickerView){
+            self.parent = parent
         }
         
-        func makeCoordinator() -> ImagePickerView.Coordinator {
-            return Coordinator(parent: self)
-        }
-        
-        // this is the tricky part
-        class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-            
-            let parent: ImagePickerView
-            init(parent: ImagePickerView){
-                self.parent = parent
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let pickerImage = info[.originalImage] as? UIImage {
+                self.parent.selectedImage = pickerImage
+                print(pickerImage)
             }
-            
-            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-                if let pickerImage = info[.originalImage] as? UIImage {
-                    self.parent.selectedImage = pickerImage
-                    print(pickerImage)
-                }
-                self.parent.isPresented = false
-            }
-        }
-        
-        func updateUIViewController(_ uiViewController: ImagePickerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ImagePickerView>) {
+            self.parent.isPresented = false
         }
     }
     
-    func performOnAppear() {
-        let item = Todo(name: "Finish quarterly taxes",
-                        priority: .high,
-                        description: "Taxes are due for the quarter next week")
-        print(item)
-        //        Amplify.DataStore.save(item) { (result) in
-        //            switch(result) {
-        //            case .success(let savedItem):
-        //                print("Saved item: \(savedItem.name)")
-        //            case .failure(let error):
-        //                print("Could not save item to datastore: \(error)")
-        //            }
-        //        }
+    func updateUIViewController(_ uiViewController: ImagePickerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ImagePickerView>) {
     }
-    
+}
+
+func uploadSelectedImage(image : UIImage) {
+    guard let data = image.jpegData(compressionQuality: 0.75) else { return }
+    let key = "images/" + NSUUID().uuidString + ".jpeg"
+    Amplify.Storage.uploadData(key: key, data: data,
+                               progressListener: { progress in
+                                print("Progress: \(progress)")
+    }, resultListener: { event in
+        switch event {
+        case .success(let data):
+            print("Completed: \(data)")
+        case .failure(let storageError):
+            print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
+        }
+    })
 }
 
 struct ContentView_Previews: PreviewProvider {
