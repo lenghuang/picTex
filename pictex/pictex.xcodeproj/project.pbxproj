@@ -25,6 +25,7 @@
 		BFF3E52824ECDDB9009E7AB4 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = BFF3E52624ECDDB9009E7AB4 /* amplifyconfiguration.json */; };
 		BFF3E52924ECDDB9009E7AB4 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = BFF3E52724ECDDB9009E7AB4 /* awsconfiguration.json */; };
 		BFF3E52B24ECE48E009E7AB4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3E52A24ECE48E009E7AB4 /* Coordinator.swift */; };
+		BFF3FB1A24EF824A00AA4C57 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3FB1924EF824A00AA4C57 /* LandingView.swift */; };
 		C339391D8DC74AF9AD82BDF3 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483CE06C9CE4453B8A077A5D /* Todo.swift */; };
 		D83F3A5366A84D15813ED917 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BA181D17464F8EBCB1FEBB /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		BFF3E52624ECDDB9009E7AB4 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 		BFF3E52724ECDDB9009E7AB4 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		BFF3E52A24ECE48E009E7AB4 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BFF3FB1924EF824A00AA4C57 /* LandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		C192967B9D500961E157659A /* Pods-pictex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pictex.debug.xcconfig"; path = "Target Support Files/Pods-pictex/Pods-pictex.debug.xcconfig"; sourceTree = "<group>"; };
 		C89E7AB1F3458E62BD902E12 /* Pods-pictex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pictex.release.xcconfig"; path = "Target Support Files/Pods-pictex/Pods-pictex.release.xcconfig"; sourceTree = "<group>"; };
 		CEF07D55D5E92B096E4E9ACE /* Pods-pictex-pictexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pictex-pictexUITests.release.xcconfig"; path = "Target Support Files/Pods-pictex-pictexUITests/Pods-pictex-pictexUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				BFAEBAA624ECD2A6008458A8 /* AppDelegate.swift */,
 				BFAEBAA824ECD2A6008458A8 /* SceneDelegate.swift */,
 				BFAEBAAA24ECD2A6008458A8 /* ContentView.swift */,
+				BFF3FB1924EF824A00AA4C57 /* LandingView.swift */,
 				BFF3E52A24ECE48E009E7AB4 /* Coordinator.swift */,
 				BFAEBAAC24ECD2AC008458A8 /* Assets.xcassets */,
 				BFAEBAB124ECD2AC008458A8 /* LaunchScreen.storyboard */,
@@ -487,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF3FB1A24EF824A00AA4C57 /* LandingView.swift in Sources */,
 				BFF3E52B24ECE48E009E7AB4 /* Coordinator.swift in Sources */,
 				BFAEBAA724ECD2A6008458A8 /* AppDelegate.swift in Sources */,
 				BFAEBAA924ECD2A6008458A8 /* SceneDelegate.swift in Sources */,
