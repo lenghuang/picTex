@@ -14,6 +14,9 @@
 		79FAA7EA40797422C61FEA14 /* Pods_pictexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13A48B945FF39EDF388EA75 /* Pods_pictexTests.framework */; };
 		7A1D5F01EC92CCBBB4047FA9 /* Pods_pictex_pictexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300F851BC9A630048FE9785E /* Pods_pictex_pictexUITests.framework */; };
 		B037FC1F234F4D31BB448F03 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040977CCFF934097A307A279 /* AmplifyModels.swift */; };
+		BFAB222124F020970015C868 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAB222024F020970015C868 /* ImagePickerView.swift */; };
+		BFAB222324F036940015C868 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAB222224F036930015C868 /* ActivityIndicator.swift */; };
+		BFAB222524F03A9C0015C868 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAB222424F03A9C0015C868 /* LoadingView.swift */; };
 		BFAEBAA724ECD2A6008458A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEBAA624ECD2A6008458A8 /* AppDelegate.swift */; };
 		BFAEBAA924ECD2A6008458A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEBAA824ECD2A6008458A8 /* SceneDelegate.swift */; };
 		BFAEBAAB24ECD2A6008458A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEBAAA24ECD2A6008458A8 /* ContentView.swift */; };
@@ -60,6 +63,9 @@
 		84E458DB49454AF8956BAEB0 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = awsconfiguration.json; sourceTree = "<group>"; };
 		8A8BA392894643A0A05CECCE /* Todo+Schema.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "Todo+Schema.swift"; path = "amplify/generated/models/Todo+Schema.swift"; sourceTree = "<group>"; };
 		B13A48B945FF39EDF388EA75 /* Pods_pictexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pictexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFAB222024F020970015C868 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		BFAB222224F036930015C868 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		BFAB222424F03A9C0015C868 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BFAEBAA324ECD2A6008458A8 /* pictex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pictex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFAEBAA624ECD2A6008458A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFAEBAA824ECD2A6008458A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,8 +188,11 @@
 				BFAEBAA624ECD2A6008458A8 /* AppDelegate.swift */,
 				BFAEBAA824ECD2A6008458A8 /* SceneDelegate.swift */,
 				BFAEBAAA24ECD2A6008458A8 /* ContentView.swift */,
+				BFAB222424F03A9C0015C868 /* LoadingView.swift */,
 				BFF3FB1924EF824A00AA4C57 /* LandingView.swift */,
 				BFF3E52A24ECE48E009E7AB4 /* Coordinator.swift */,
+				BFAB222224F036930015C868 /* ActivityIndicator.swift */,
+				BFAB222024F020970015C868 /* ImagePickerView.swift */,
 				BFAEBAAC24ECD2AC008458A8 /* Assets.xcassets */,
 				BFAEBAB124ECD2AC008458A8 /* LaunchScreen.storyboard */,
 				BFAEBAB424ECD2AC008458A8 /* Info.plist */,
@@ -494,6 +503,9 @@
 				BFF3E52B24ECE48E009E7AB4 /* Coordinator.swift in Sources */,
 				BFAEBAA724ECD2A6008458A8 /* AppDelegate.swift in Sources */,
 				BFAEBAA924ECD2A6008458A8 /* SceneDelegate.swift in Sources */,
+				BFAB222124F020970015C868 /* ImagePickerView.swift in Sources */,
+				BFAB222524F03A9C0015C868 /* LoadingView.swift in Sources */,
+				BFAB222324F036940015C868 /* ActivityIndicator.swift in Sources */,
 				BFAEBAAB24ECD2A6008458A8 /* ContentView.swift in Sources */,
 				B037FC1F234F4D31BB448F03 /* AmplifyModels.swift in Sources */,
 				2BEE291DB730439186AE877F /* Priority.swift in Sources */,

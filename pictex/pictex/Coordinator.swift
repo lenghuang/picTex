@@ -29,9 +29,3 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
         isCoordinatorShown = false
     }
 }
-
-//struct Coordinator_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Coordinator()
-//    }
-//}
