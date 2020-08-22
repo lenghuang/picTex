@@ -8,9 +8,9 @@ from PIL import Image
 import requests
 from io import BytesIO
 
-model_path = "./models/custom_label_1000.pt"
-tempchar = 'r'
-image_path = "./final/" + tempchar+'/' + tempchar + "_fig_37.jpg"
+model_path = "./models/pictex_100.pt"
+tempchar = 'a'
+image_path = "./final/" + tempchar+'/' + tempchar + "_fig_7.jpg"
 
 # Transforms for prepping data to fit our model
 transform = transforms.Compose(
@@ -34,36 +34,34 @@ def textPredict(image_path, local=False, is_path = True):
         # Load image from url
         # response = requests.get(image_path)
         image = image_path if local else BytesIO(requests.get(image_path).content)
-        image = transform(Image.open(image)).unsqueeze(0)
+        image = transform(Image.open(image)).unsqueeze(0)  # batch size of 1
         outputs = model(image)
         values, indices = outputs.topk(5)
         print("Top predictions are:")
         for i, index in enumerate(indices[0]):
-            print(f"{classes[index]} with value: {values[0][i]:>20}")
-        return classes[indices[0][0]]
+            print(f"{classes[int(index)]} with value: {values[0][i]:>20}")
+        return classes[int(indices[0][0])]
     else:
         img = image_path
         img = transform(img).unsqueeze(0)
         outputs = model(img)
         values, indices = outputs.topk(5)
-        #print("Top predictions are:")
-        #for i, index in enumerate(indices[0]):
-        #    print(f"{classes[index]} with value: {values[0][i]:>20}")
-        return classes[indices[0][0]]
+        print("Top predictions are:")
+        for i, index in enumerate(indices[0]):
+            print(f"{classes[int(index)]} with value: {values[0][i]:>20}")
+        return classes[int(indices[0][0])]
 
 
 
 if __name__ == "__main__":
     # local image
-    textPredict(image_path, True)
+    # textPredict(image_path, True)
     # number 1
-    #textPredict(
-    #    "https://printables.space/files/uploads/download-and-print/large
-    #    -printable-numbers/1-a4-1200x1697.jpg"
-    #)
-    # number 5
-    #textPredict(
-    #    "https://gamedata.britishcouncil.org/sites/default/files/attachment
-    #    /number-5_2.jpg",
-    #)
+    # textPredict(
+    #     "https://printables.space/files/uploads/download-and-print/large-printable-numbers/1-a4-1200x1697.jpg"
+    # )
+    # # number 5
+    # textPredict(
+    #     "https://gamedata.britishcouncil.org/sites/default/files/attachment/number-5_2.jpg",
+    # )
 

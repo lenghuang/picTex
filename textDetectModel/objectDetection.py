@@ -17,6 +17,9 @@ global dilate
 import string
 
 
+
+
+
 def objectDetection(url, file_char=None, debug=False):
     """
     REQUIRES: url is a valid address to a local or online repository
@@ -39,62 +42,9 @@ def objectDetection(url, file_char=None, debug=False):
         # Respects the dimensions of A3 paper
 
         """
-        Remove any unwanted lines in the image.
+        Remove the background, lines, and threshold the image
         """
-        img_t = img.copy()
-        hsv = cv2.cvtColor(img_t, cv2.COLOR_BGR2HSV)
-        blue_min = np.array([90, 5, 0])  # [89,10,0]
-        blue_max = np.array([134, 255, 255])
-        blue_lines = cv2.inRange(hsv, blue_min, blue_max)
-
-        if debug:
-            bluePIL = Image.fromarray(blue_lines)
-            bluePIL.show(title="blue_lines")
-        if (np.sum(blue_lines == 255) > 1000):
-            """
-            If there is a lot of blue in the image, 
-            treat it like it is lined paper.
-            """
-            print("I THINK THIS IS A LINED PAPER")
-            lined = True
-        else:
-            lined = False
-
-        if lined:
-            # The way the hsv color system works red is 0-15 and 145-180
-            # It basically loops around.
-
-            red_min = np.array([140, 10, 70])
-            red_max = np.array([180, 255, 255])
-            frame_1 = cv2.inRange(hsv, red_min, red_max)
-
-            red_min = np.array([0, 30, 0])
-            red_max = np.array([15, 255, 255])
-            frame_2 = cv2.inRange(hsv, red_min, red_max)
-            red_lines = frame_1 + frame_2
-            red_lines = cv2.morphologyEx(red_lines, cv2.MORPH_OPEN, (5, 5),
-                                         iterations=10)
-            red_lines = cv2.dilate(red_lines, (1, 1), iterations=5)
-            if debug:
-                redPIL = Image.fromarray(red_lines)
-                redPIL.show(title="red_lines")
-
-            img_t[:, :, :] = 255
-            frame = red_lines + blue_lines
-            mask = cv2.bitwise_and(img_t, img_t, mask=frame)
-            mask = cv2.GaussianBlur(mask, (5, 5), 10)
-            mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, (5, 5), iterations=1)
-            mask = cv2.dilate(mask, (1, 1), iterations=2)
-
-            img_without_lines = cv2.bitwise_or(img, mask)
-
-            if debug:
-                maskPIL = Image.fromarray(img_without_lines)
-                maskPIL.show(title="img")
-        else:
-            img_without_lines = img
-
-        img_temp = img.copy()
+        thresh = convert(img)
 
         if file_char is not None:
             """
@@ -107,40 +57,6 @@ def objectDetection(url, file_char=None, debug=False):
                 pass
 
             file_start = len(listdir(path))
-
-        """
-        Convert the image to a black and white mask.
-        """
-        temp = cv2.cvtColor(img_without_lines, cv2.COLOR_BGR2GRAY)
-
-        """
-        Get the threshold
-        """
-        if lined:
-            iteration_for_white = 4
-        else:
-            iteration_for_white = 3
-
-        total_pixel = temp.flatten()
-        white_list = list(filter(lambda x: x > 10, total_pixel))
-        avg_white = sum(white_list) / len(white_list)
-        for i in range(iteration_for_white):
-            white_list = list(filter(lambda x: x < avg_white, white_list))
-            avg_white = sum(white_list) / len(white_list)
-
-        thresh = avg_white
-
-        ret, temp1 = cv2.threshold(temp, thresh, 255, cv2.THRESH_BINARY_INV)
-        # temp = cv2.morphologyEx(temp, cv2.MORPH_OPEN, (5,5), iterations=1)
-        temp = cv2.GaussianBlur(temp1, (5, 5), 0)
-        k = cv2.getStructuringElement(cv2.MORPH_RECT, (4, 8))
-        temp = cv2.morphologyEx(temp, cv2.MORPH_CLOSE, k,
-                                iterations=1)  # iter=2
-        thresh = temp
-
-        if debug:
-            threshPIL = Image.fromarray(thresh)
-            threshPIL.show(title="threshold_image")
 
         """
         Find the Contours.
@@ -265,5 +181,5 @@ if __name__ == "__main__":
     """
     Running objectDetection
     """
-    url = "data/IMG_7302.jpg"
+    url = "examples/IMG_7300.jpg"
     objectDetection(url=url, debug=True)
