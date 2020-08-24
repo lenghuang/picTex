@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B74525324F38B2E007DD621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74525224F38B2E007DD621 /* AppDelegate.swift */; };
+		3B74525524F38B2E007DD621 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74525424F38B2E007DD621 /* SceneDelegate.swift */; };
+		3B74525724F38B2E007DD621 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74525624F38B2E007DD621 /* ContentView.swift */; };
+		3B74525924F38B2F007DD621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B74525824F38B2F007DD621 /* Assets.xcassets */; };
+		3B74525C24F38B2F007DD621 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B74525B24F38B2F007DD621 /* Preview Assets.xcassets */; };
+		3B74525F24F38B2F007DD621 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B74525D24F38B2F007DD621 /* LaunchScreen.storyboard */; };
+		3B74526A24F38B2F007DD621 /* PicTeXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74526924F38B2F007DD621 /* PicTeXTests.swift */; };
+		3B74527524F38B2F007DD621 /* PicTeXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74527424F38B2F007DD621 /* PicTeXUITests.swift */; };
+		3B74528324F38B7F007DD621 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74528224F38B7F007DD621 /* LandingView.swift */; };
+		3B74528524F38D37007DD621 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74528424F38D37007DD621 /* SplashView.swift */; };
+		3B74528724F3905C007DD621 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74528624F3905C007DD621 /* CircleImage.swift */; };
+		3B74528924F392C8007DD621 /* InformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74528824F392C8007DD621 /* InformationDetailView.swift */; };
+		3B74528B24F39365007DD621 /* InformationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74528A24F39365007DD621 /* InformationContainerView.swift */; };
+		3B74528D24F3940D007DD621 /* LandingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74528C24F3940D007DD621 /* LandingTitleView.swift */; };
+		3B74529124F39985007DD621 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74529024F39985007DD621 /* ScanView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B74526624F38B2F007DD621 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B74524724F38B2E007DD621 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B74524E24F38B2E007DD621;
+			remoteInfo = PicTeX;
+		};
+		3B74527124F38B2F007DD621 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B74524724F38B2E007DD621 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B74524E24F38B2E007DD621;
+			remoteInfo = PicTeX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B74524F24F38B2E007DD621 /* PicTeX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicTeX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B74525224F38B2E007DD621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B74525424F38B2E007DD621 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3B74525624F38B2E007DD621 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B74525824F38B2F007DD621 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B74525B24F38B2F007DD621 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3B74525E24F38B2F007DD621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B74526024F38B2F007DD621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B74526524F38B2F007DD621 /* PicTeXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicTeXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B74526924F38B2F007DD621 /* PicTeXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicTeXTests.swift; sourceTree = "<group>"; };
+		3B74526B24F38B2F007DD621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B74527024F38B2F007DD621 /* PicTeXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicTeXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B74527424F38B2F007DD621 /* PicTeXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicTeXUITests.swift; sourceTree = "<group>"; };
+		3B74527624F38B2F007DD621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B74528224F38B7F007DD621 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		3B74528424F38D37007DD621 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		3B74528624F3905C007DD621 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		3B74528824F392C8007DD621 /* InformationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailView.swift; sourceTree = "<group>"; };
+		3B74528A24F39365007DD621 /* InformationContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationContainerView.swift; sourceTree = "<group>"; };
+		3B74528C24F3940D007DD621 /* LandingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingTitleView.swift; sourceTree = "<group>"; };
+		3B74529024F39985007DD621 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B74524C24F38B2E007DD621 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B74526224F38B2F007DD621 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B74526D24F38B2F007DD621 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B74524624F38B2E007DD621 = {
+			isa = PBXGroup;
+			children = (
+				3B74525124F38B2E007DD621 /* PicTeX */,
+				3B74526824F38B2F007DD621 /* PicTeXTests */,
+				3B74527324F38B2F007DD621 /* PicTeXUITests */,
+				3B74525024F38B2E007DD621 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B74525024F38B2E007DD621 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B74524F24F38B2E007DD621 /* PicTeX.app */,
+				3B74526524F38B2F007DD621 /* PicTeXTests.xctest */,
+				3B74527024F38B2F007DD621 /* PicTeXUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B74525124F38B2E007DD621 /* PicTeX */ = {
+			isa = PBXGroup;
+			children = (
+				3B74525224F38B2E007DD621 /* AppDelegate.swift */,
+				3B74525424F38B2E007DD621 /* SceneDelegate.swift */,
+				3B74525624F38B2E007DD621 /* ContentView.swift */,
+				3B74525824F38B2F007DD621 /* Assets.xcassets */,
+				3B74525D24F38B2F007DD621 /* LaunchScreen.storyboard */,
+				3B74526024F38B2F007DD621 /* Info.plist */,
+				3B74525A24F38B2F007DD621 /* Preview Content */,
+				3B74528424F38D37007DD621 /* SplashView.swift */,
+				3B74528624F3905C007DD621 /* CircleImage.swift */,
+				3B74528224F38B7F007DD621 /* LandingView.swift */,
+				3B74528824F392C8007DD621 /* InformationDetailView.swift */,
+				3B74528A24F39365007DD621 /* InformationContainerView.swift */,
+				3B74528C24F3940D007DD621 /* LandingTitleView.swift */,
+				3B74529024F39985007DD621 /* ScanView.swift */,
+			);
+			path = PicTeX;
+			sourceTree = "<group>";
+		};
+		3B74525A24F38B2F007DD621 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3B74525B24F38B2F007DD621 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3B74526824F38B2F007DD621 /* PicTeXTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B74526924F38B2F007DD621 /* PicTeXTests.swift */,
+				3B74526B24F38B2F007DD621 /* Info.plist */,
+			);
+			path = PicTeXTests;
+			sourceTree = "<group>";
+		};
+		3B74527324F38B2F007DD621 /* PicTeXUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B74527424F38B2F007DD621 /* PicTeXUITests.swift */,
+				3B74527624F38B2F007DD621 /* Info.plist */,
+			);
+			path = PicTeXUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B74524E24F38B2E007DD621 /* PicTeX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B74527924F38B2F007DD621 /* Build configuration list for PBXNativeTarget "PicTeX" */;
+			buildPhases = (
+				3B74524B24F38B2E007DD621 /* Sources */,
+				3B74524C24F38B2E007DD621 /* Frameworks */,
+				3B74524D24F38B2E007DD621 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PicTeX;
+			productName = PicTeX;
+			productReference = 3B74524F24F38B2E007DD621 /* PicTeX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3B74526424F38B2F007DD621 /* PicTeXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B74527C24F38B2F007DD621 /* Build configuration list for PBXNativeTarget "PicTeXTests" */;
+			buildPhases = (
+				3B74526124F38B2F007DD621 /* Sources */,
+				3B74526224F38B2F007DD621 /* Frameworks */,
+				3B74526324F38B2F007DD621 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B74526724F38B2F007DD621 /* PBXTargetDependency */,
+			);
+			name = PicTeXTests;
+			productName = PicTeXTests;
+			productReference = 3B74526524F38B2F007DD621 /* PicTeXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3B74526F24F38B2F007DD621 /* PicTeXUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B74527F24F38B2F007DD621 /* Build configuration list for PBXNativeTarget "PicTeXUITests" */;
+			buildPhases = (
+				3B74526C24F38B2F007DD621 /* Sources */,
+				3B74526D24F38B2F007DD621 /* Frameworks */,
+				3B74526E24F38B2F007DD621 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B74527224F38B2F007DD621 /* PBXTargetDependency */,
+			);
+			name = PicTeXUITests;
+			productName = PicTeXUITests;
+			productReference = 3B74527024F38B2F007DD621 /* PicTeXUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B74524724F38B2E007DD621 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Erica Chiang";
+				TargetAttributes = {
+					3B74524E24F38B2E007DD621 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					3B74526424F38B2F007DD621 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 3B74524E24F38B2E007DD621;
+					};
+					3B74526F24F38B2F007DD621 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 3B74524E24F38B2E007DD621;
+					};
+				};
+			};
+			buildConfigurationList = 3B74524A24F38B2E007DD621 /* Build configuration list for PBXProject "PicTeX" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B74524624F38B2E007DD621;
+			productRefGroup = 3B74525024F38B2E007DD621 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B74524E24F38B2E007DD621 /* PicTeX */,
+				3B74526424F38B2F007DD621 /* PicTeXTests */,
+				3B74526F24F38B2F007DD621 /* PicTeXUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B74524D24F38B2E007DD621 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B74525F24F38B2F007DD621 /* LaunchScreen.storyboard in Resources */,
+				3B74525C24F38B2F007DD621 /* Preview Assets.xcassets in Resources */,
+				3B74525924F38B2F007DD621 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B74526324F38B2F007DD621 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B74526E24F38B2F007DD621 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B74524B24F38B2E007DD621 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B74528324F38B7F007DD621 /* LandingView.swift in Sources */,
+				3B74525324F38B2E007DD621 /* AppDelegate.swift in Sources */,
+				3B74528924F392C8007DD621 /* InformationDetailView.swift in Sources */,
+				3B74528524F38D37007DD621 /* SplashView.swift in Sources */,
+				3B74525524F38B2E007DD621 /* SceneDelegate.swift in Sources */,
+				3B74528B24F39365007DD621 /* InformationContainerView.swift in Sources */,
+				3B74525724F38B2E007DD621 /* ContentView.swift in Sources */,
+				3B74529124F39985007DD621 /* ScanView.swift in Sources */,
+				3B74528724F3905C007DD621 /* CircleImage.swift in Sources */,
+				3B74528D24F3940D007DD621 /* LandingTitleView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B74526124F38B2F007DD621 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B74526A24F38B2F007DD621 /* PicTeXTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B74526C24F38B2F007DD621 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B74527524F38B2F007DD621 /* PicTeXUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B74526724F38B2F007DD621 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B74524E24F38B2E007DD621 /* PicTeX */;
+			targetProxy = 3B74526624F38B2F007DD621 /* PBXContainerItemProxy */;
+		};
+		3B74527224F38B2F007DD621 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B74524E24F38B2E007DD621 /* PicTeX */;
+			targetProxy = 3B74527124F38B2F007DD621 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3B74525D24F38B2F007DD621 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B74525E24F38B2F007DD621 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B74527724F38B2F007DD621 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B74527824F38B2F007DD621 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B74527A24F38B2F007DD621 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"PicTeX/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PicTeX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eschiang.PicTeX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B74527B24F38B2F007DD621 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"PicTeX/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PicTeX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eschiang.PicTeX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3B74527D24F38B2F007DD621 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PicTeXTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eschiang.PicTeXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PicTeX.app/PicTeX";
+			};
+			name = Debug;
+		};
+		3B74527E24F38B2F007DD621 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PicTeXTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eschiang.PicTeXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PicTeX.app/PicTeX";
+			};
+			name = Release;
+		};
+		3B74528024F38B2F007DD621 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PicTeXUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eschiang.PicTeXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PicTeX;
+			};
+			name = Debug;
+		};
+		3B74528124F38B2F007DD621 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PicTeXUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eschiang.PicTeXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PicTeX;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B74524A24F38B2E007DD621 /* Build configuration list for PBXProject "PicTeX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B74527724F38B2F007DD621 /* Debug */,
+				3B74527824F38B2F007DD621 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B74527924F38B2F007DD621 /* Build configuration list for PBXNativeTarget "PicTeX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B74527A24F38B2F007DD621 /* Debug */,
+				3B74527B24F38B2F007DD621 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B74527C24F38B2F007DD621 /* Build configuration list for PBXNativeTarget "PicTeXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B74527D24F38B2F007DD621 /* Debug */,
+				3B74527E24F38B2F007DD621 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B74527F24F38B2F007DD621 /* Build configuration list for PBXNativeTarget "PicTeXUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B74528024F38B2F007DD621 /* Debug */,
+				3B74528124F38B2F007DD621 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B74524724F38B2E007DD621 /* Project object */;
+}
