@@ -14,6 +14,12 @@
 		79FAA7EA40797422C61FEA14 /* Pods_pictexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13A48B945FF39EDF388EA75 /* Pods_pictexTests.framework */; };
 		7A1D5F01EC92CCBBB4047FA9 /* Pods_pictex_pictexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300F851BC9A630048FE9785E /* Pods_pictex_pictexUITests.framework */; };
 		B037FC1F234F4D31BB448F03 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040977CCFF934097A307A279 /* AmplifyModels.swift */; };
+		BF3DCB5724F43E45006AE4ED /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCB5124F43E45006AE4ED /* ScanView.swift */; };
+		BF3DCB5824F43E45006AE4ED /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCB5224F43E45006AE4ED /* SplashView.swift */; };
+		BF3DCB5924F43E45006AE4ED /* InformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCB5324F43E45006AE4ED /* InformationDetailView.swift */; };
+		BF3DCB5A24F43E45006AE4ED /* LandingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCB5424F43E45006AE4ED /* LandingTitleView.swift */; };
+		BF3DCB5B24F43E45006AE4ED /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCB5524F43E45006AE4ED /* CircleImage.swift */; };
+		BF3DCB5C24F43E45006AE4ED /* InformationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCB5624F43E45006AE4ED /* InformationContainerView.swift */; };
 		BFAB222124F020970015C868 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAB222024F020970015C868 /* ImagePickerView.swift */; };
 		BFAB222324F036940015C868 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAB222224F036930015C868 /* ActivityIndicator.swift */; };
 		BFAB222524F03A9C0015C868 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAB222424F03A9C0015C868 /* LoadingView.swift */; };
@@ -63,6 +69,12 @@
 		84E458DB49454AF8956BAEB0 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = awsconfiguration.json; sourceTree = "<group>"; };
 		8A8BA392894643A0A05CECCE /* Todo+Schema.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "Todo+Schema.swift"; path = "amplify/generated/models/Todo+Schema.swift"; sourceTree = "<group>"; };
 		B13A48B945FF39EDF388EA75 /* Pods_pictexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pictexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF3DCB5124F43E45006AE4ED /* ScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		BF3DCB5224F43E45006AE4ED /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		BF3DCB5324F43E45006AE4ED /* InformationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationDetailView.swift; sourceTree = "<group>"; };
+		BF3DCB5424F43E45006AE4ED /* LandingTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingTitleView.swift; sourceTree = "<group>"; };
+		BF3DCB5524F43E45006AE4ED /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		BF3DCB5624F43E45006AE4ED /* InformationContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationContainerView.swift; sourceTree = "<group>"; };
 		BFAB222024F020970015C868 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		BFAB222224F036930015C868 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		BFAB222424F03A9C0015C868 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -193,6 +205,12 @@
 				BFF3E52A24ECE48E009E7AB4 /* Coordinator.swift */,
 				BFAB222224F036930015C868 /* ActivityIndicator.swift */,
 				BFAB222024F020970015C868 /* ImagePickerView.swift */,
+				BF3DCB5524F43E45006AE4ED /* CircleImage.swift */,
+				BF3DCB5624F43E45006AE4ED /* InformationContainerView.swift */,
+				BF3DCB5324F43E45006AE4ED /* InformationDetailView.swift */,
+				BF3DCB5424F43E45006AE4ED /* LandingTitleView.swift */,
+				BF3DCB5124F43E45006AE4ED /* ScanView.swift */,
+				BF3DCB5224F43E45006AE4ED /* SplashView.swift */,
 				BFAEBAAC24ECD2AC008458A8 /* Assets.xcassets */,
 				BFAEBAB124ECD2AC008458A8 /* LaunchScreen.storyboard */,
 				BFAEBAB424ECD2AC008458A8 /* Info.plist */,
@@ -505,12 +523,18 @@
 				BFAEBAA924ECD2A6008458A8 /* SceneDelegate.swift in Sources */,
 				BFAB222124F020970015C868 /* ImagePickerView.swift in Sources */,
 				BFAB222524F03A9C0015C868 /* LoadingView.swift in Sources */,
+				BF3DCB5724F43E45006AE4ED /* ScanView.swift in Sources */,
 				BFAB222324F036940015C868 /* ActivityIndicator.swift in Sources */,
 				BFAEBAAB24ECD2A6008458A8 /* ContentView.swift in Sources */,
 				B037FC1F234F4D31BB448F03 /* AmplifyModels.swift in Sources */,
 				2BEE291DB730439186AE877F /* Priority.swift in Sources */,
+				BF3DCB5A24F43E45006AE4ED /* LandingTitleView.swift in Sources */,
 				C339391D8DC74AF9AD82BDF3 /* Todo.swift in Sources */,
 				1F3D65F5B67E4C2D8F352DFA /* Todo+Schema.swift in Sources */,
+				BF3DCB5B24F43E45006AE4ED /* CircleImage.swift in Sources */,
+				BF3DCB5924F43E45006AE4ED /* InformationDetailView.swift in Sources */,
+				BF3DCB5824F43E45006AE4ED /* SplashView.swift in Sources */,
+				BF3DCB5C24F43E45006AE4ED /* InformationContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
