@@ -80,7 +80,7 @@ struct ContentView: View {
         self.uploadLoading.toggle()
         self.uploadSuccess = ""
         
-        let key = NSUUID().uuidString + ".jpeg"
+        let key = "picture/" + NSUUID().uuidString + ".jpeg"
         self.key = key
         
         guard let data = image.jpegData(compressionQuality: 0.75) else { return }
