@@ -35,7 +35,7 @@ struct ScanView: View {
     var vertical : some View {
         VStack {
             Spacer()
-            Text("PicTex: \nUpload an Image")
+            Text("Upload an image or scan a new image!")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)

@@ -11,11 +11,12 @@ import SwiftUI
 struct LandingView: View {
     var body: some View {
         NavigationView {
+            
             VStack(alignment: .center) {
-
-                Spacer()
                 
                 LandingTitleView()
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
 
                 InformationContainerView()
 
@@ -29,7 +30,9 @@ struct LandingView: View {
                         Text("Continue")
                     }
                 }
-                .padding(.horizontal)
+                .padding()
+                .accentColor(.white)
+                .background(/*@START_MENU_TOKEN@*/Color.green/*@END_MENU_TOKEN@*/)
             }
         }
     } 

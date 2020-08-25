@@ -22,8 +22,8 @@ struct SplashView: View {
                     
                     Text("PicTeX")
                         .font(Font.largeTitle)
-                        .foregroundColor(Color.red)
                 }
+                .background(/*@START_MENU_TOKEN@*/Color.green/*@END_MENU_TOKEN@*/)
                 
             }
         }
