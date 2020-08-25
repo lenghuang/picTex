@@ -14,7 +14,7 @@ struct LandingView: View {
             VStack(alignment: .center) {
 
                 Spacer()
-
+                
                 LandingTitleView()
 
                 InformationContainerView()
@@ -32,7 +32,7 @@ struct LandingView: View {
                 .padding(.horizontal)
             }
         }
-    }
+    } 
 }
 
 
