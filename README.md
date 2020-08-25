@@ -6,12 +6,6 @@ This is a full-stack SwiftUI application developed with the AWS Amplify framewor
 
 View our [demo video](http://www.youtube.com/watch?v=IQwyBaEmlQI) here.
 
-## Screenshots
-
-|    Initial Loading View     |       Landing View        |
-| :-------------------------: | :-----------------------: |
-| ![](screenshots/splash.PNG) | ![](screenshots/land.PNG) |
-
 ## Reflections:
 
 ### Inspiration
@@ -33,3 +27,17 @@ We are really proud of the way that we were able to create a handwriting recogni
 ### For the Future
 
 We will definitely continue working on PicTeX in the future, and our first goals will be to develop a more accurate symbol classifier, as well as add more features to the user interface. We are very excited about the project and hope that it will be able to aid many people in the future!
+
+## Screenshots
+
+|    Initial Loading View     |       Landing View        |
+| :-------------------------: | :-----------------------: |
+| ![](screenshots/splash.PNG) | ![](screenshots/land.PNG) |
+
+|         Upload View         |       Loading View        |
+| :-------------------------: | :-----------------------: |
+| ![](screenshots/upload.PNG) | ![](screenshots/load.PNG) |
+
+|   Completed! Download View    |   View Your .tex File    |
+| :---------------------------: | :----------------------: |
+| ![](screenshots/download.PNG) | ![](screenshots/tex.png) |
