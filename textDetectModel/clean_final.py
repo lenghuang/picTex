@@ -7,7 +7,7 @@ import numpy as np
 
 def getAvgWhite(img_bw, debug=True):
     total_pixel = sorted(img_bw.flatten())
-    total_pixel = list(filter(lambda num: num > 130,
+    total_pixel = list(filter(lambda num: num > 125,
                               total_pixel))
     std = np.std(total_pixel)
     mean = np.mean(total_pixel)

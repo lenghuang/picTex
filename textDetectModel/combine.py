@@ -20,7 +20,7 @@ def outputText(url, local=True):
     #  5: height,
     #  6: width + height,
     #  7: img]
-    bounding_list = objectDetection(url, debug=False)
+    bounding_list = objectDetection(url, debug=True)
 
     page = []
     for row in bounding_list:
@@ -39,10 +39,9 @@ def outputText(url, local=True):
 
     # If you wanted the fourth row, first obj's character
     #char = page[3][0][4]
-    arrayToTxt(page)
-    return page
+    return arrayToTxt(page)
 
 if __name__ == "__main__":
-    (outputText("https://i.stack.imgur.com/VfmOK.png"))
-    #print(outputText("examples/n.jpeg"))
+    #print(outputText("https://i.stack.imgur.com/VfmOK.png"))
+    print(outputText("examples/IMG_5496.jpeg"))
 

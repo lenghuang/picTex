@@ -65,7 +65,7 @@ def objectDetection(url, file_char=None, debug=False):
             area = cv2.contourArea(cnt)
             x, y, w, h = cv2.boundingRect(cnt)
             buffer = 10
-            if area > 10 and y > buffer and x > buffer:
+            if area > 40 and y > buffer and x > buffer:
                 im2 = temp[y - buffer:y + h + buffer,
                       x - buffer:x + w + buffer]
                 im2 = cv2.resize(im2, dsize=(32, 32),
@@ -100,7 +100,7 @@ def objectDetection(url, file_char=None, debug=False):
             if obj[3] > currentLow:
                 # if the high is below the low, switch to a new line
                 if currentList != []:
-                    currentList.sort(key=lambda x: x[2], reverse=True)
+                    currentList.sort(key=lambda x: x[2], reverse=False)
                     returnList.append(currentList)
                 currentList = []
                 currentLow = obj[6]
@@ -120,7 +120,7 @@ def objectDetection(url, file_char=None, debug=False):
                 (255, 255, 255),
             ]
             for i in range(len(returnList)):
-                for box in returnList[i]:
+                for j, box in enumerate(returnList[i]):
                     x = box[2]
                     y = box[3]
                     w = box[4]
@@ -174,5 +174,5 @@ if __name__ == "__main__":
     """
     Running objectDetection
     """
-    url = "examples/IMG_7300.jpg"
+    url = "examples/IMG_5492.jpeg"
     objectDetection(url=url, debug=True)
