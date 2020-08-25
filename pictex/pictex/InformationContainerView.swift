@@ -11,11 +11,11 @@ import SwiftUI
 struct InformationContainerView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            InformationDetailView(title: "Step 1", subTitle: "Take a picture of your writeup", imageName: "slider.horizontal.below.rectangle")
+            InformationDetailView(title: "Step 1", subTitle: "Take a picture of your writeup", imageName: "camera")
 
-            InformationDetailView(title: "Step 2", subTitle: "Review your .tex file and confirm that it looks correct.", imageName: "minus.slash.plus")
+            InformationDetailView(title: "Step 2", subTitle: "Review your .tex file and confirm that it looks correct.", imageName: "checkmark.circle")
 
-            InformationDetailView(title: "Step 3", subTitle: "Download your new .tex file!", imageName: "checkmark.square")
+            InformationDetailView(title: "Step 3", subTitle: "Download your new .tex file!", imageName: "arrow.down.doc")
         }
         .padding(.horizontal)
     }
