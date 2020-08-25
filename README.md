@@ -1,5 +1,16 @@
 # PicTex
 
+## Intro
+
+This is a full-stack SwiftUI application developed with the AWS Amplify framework to deploy a PyTorch CNN in the cloud. Submitted for the [Global PyTorch Summer 2020 Hacakthon](https://devpost.com/software/pictex). Worked on by Len Huang, Erica Chiang, and Zach Nowak.
+
+View our [demo video](http://www.youtube.com/watch?v=IQwyBaEmlQI) here.
+
+## Screenshots
+
+
+## Reflections:
+
 ### Inspiration
 As college students who often typeset assignments in LaTeX, we became interested in the possibility of creating an app that converts a handwritten document into a LaTeX file. We were really interested in learning more about computer vision and app development, so we decided to try implementing the idea and called it PicTeX. 
 
@@ -14,3 +25,4 @@ We are really proud of the way that we were able to create a handwriting recogni
 
 ### For the Future
 We will definitely continue working on PicTeX in the future, and our first goals will be to develop a more accurate symbol classifier, as well as add more features to the user interface. We are very excited about the project and hope that it will be able to aid many people in the future!
+
