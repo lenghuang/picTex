@@ -38,9 +38,8 @@ def textPredict(image_path, local=False, is_path = True):
         image = cv2.imread(image)
         image = np.expand_dims(transform(image), axis=0) # batch size of 1
         image = np.expand_dims(image, axis=0)
-        print(image.shape, image.dtype)
         outputs = sess.run(None, {input_name: image})
-        print(np.argmax(outputs))
+        #print(np.argmax(outputs))
 
         # print("Top predictions are:")
         # for i, index in enumerate(indices[0]):
@@ -48,12 +47,11 @@ def textPredict(image_path, local=False, is_path = True):
         return classes[np.argmax(outputs)]
     else:
         img = image_path.convert('RGB')
-        img.show()
         image = np.array(img)
         image = np.expand_dims(transform(image), axis=0)  # batch size of 1
         image = np.expand_dims(image, axis=0)
         outputs = sess.run(None, {input_name: image})
-        print(classes[np.argmax(outputs)])
+        #print(classes[np.argmax(outputs)])
         return classes[np.argmax(outputs)]
 
 

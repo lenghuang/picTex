@@ -1,6 +1,6 @@
 from objectDetection import objectDetection
 from predict import textPredict
-
+from array_to_txt import arrayToTxt
 
 def outputText(url, local=True):
     """
@@ -20,7 +20,7 @@ def outputText(url, local=True):
     #  5: height,
     #  6: width + height,
     #  7: img]
-    bounding_list = objectDetection(url, debug=True)
+    bounding_list = objectDetection(url, debug=False)
 
     page = []
     for row in bounding_list:
@@ -39,9 +39,10 @@ def outputText(url, local=True):
 
     # If you wanted the fourth row, first obj's character
     #char = page[3][0][4]
+    arrayToTxt(page)
     return page
 
 if __name__ == "__main__":
-    print(outputText("https://i.stack.imgur.com/VfmOK.png"))
+    (outputText("https://i.stack.imgur.com/VfmOK.png"))
     #print(outputText("examples/n.jpeg"))
 

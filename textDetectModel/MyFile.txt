@@ -1,0 +1,13 @@
+\documentclass{article}
+    \usepackage[utf8]{inputenc}
+    \begin{document}
+
+    $ 1 n n k m n n n\sum n w h m\mathbb{N} l w\mathbb{N} n m w m n r n n c n v\sum_{NaturalsNaturals} w m 1 h 2 m m m n n n$ \\ 
+$\mathbb{N}\mathbb{N} 8 1\mathbb{N}\mathbb{N} m l h$ \\ 
+$ j d l m 4 p l<$ \\ 
+$ j n m\mathbb{N} m m j w\mathbb{N} n w 1 k m r r 8 n n m\mathbb{N} m\mathbb{N} v w\mathbb{N} m m n b\mathbb{N} w m\left( z\mathbb{N} j m w 0 v v m w a l l$ \\ 
+$\right) p l l l n\left( 1$ \\ 
+ l n m l\mu\mu\+ l v l n k\-\- \\ 
+$ z m q m\left( v\mathbb{N} q n q n z\mathbb{N} y d x v\left( n q t 8 n q 1<$ \\ 
+
+\end{document}

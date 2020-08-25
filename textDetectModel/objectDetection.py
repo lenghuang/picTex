@@ -36,7 +36,7 @@ def objectDetection(url, file_char=None, debug=False):
         """
         Remove the background, lines, and threshold the image
         """
-        thresh = convert(img, debug=True)
+        thresh = convert(img, debug=False)
 
         if file_char is not None:
             """
