@@ -90,7 +90,6 @@ def convert(image, debug=False):
                                      interpolation=cv2.INTER_LINEAR_EXACT)
             max_page_color = cv2.resize(max_page_color, dsize=(1050, 1485),
                                         interpolation=cv2.INTER_LINEAR_EXACT)
-
     """
     Remove any unwanted lines (red or blue)
         1. Check if there is any blue lines
