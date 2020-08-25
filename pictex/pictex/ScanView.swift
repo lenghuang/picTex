@@ -14,69 +14,79 @@ import AmplifyPlugins
 struct ScanView: View {
     
     @State var isShowingImagePicker = false
+    @State var camera = false
     @State var imageInBox = UIImage()
     @State var uploadLoading = false
-    @State private var uploadSuccess = ""
+    @State var uploadSuccess = ""
     @State var key = ""
     
-    var cflink = "https://d37crjhbub9zgu.cloudfront.net/public/"
-    
     var body: some View {
-        LoadingView(isShowing: self.$uploadLoading) {
-            self.vertical
+        ZStack{
+            if uploadSuccess == "yay" {
+                DownloadView(key: self.$key)
+            } else {
+                LoadingView(isShowing: self.$uploadLoading) {
+                    self.vertical
+                }
+            }
         }
     }
     
     var vertical : some View {
-        NavigationView {
-            VStack {
-                Spacer()
-                Text("PicTex: \nUpload an Image")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-                //            Image(uiImage: imageInBox).resizable().aspectRatio(contentMode: .fit).frame(width:375,height:450).border(Color.black, width: 1).clipped()
-                GeometryReader { geo in
-                    VStack{
-                        Image(uiImage: self.imageInBox)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9).border(Color.blue, width: 1)
-                        Button(action: {
-                            self.isShowingImagePicker.toggle()
-                        }, label: {
-                            Text("Select Image")
-                        }).sheet(isPresented: self.$isShowingImagePicker, content:{ ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox)
-                        })
-                    }
-                }
+        VStack {
+            Spacer()
+            Text("PicTex: \nUpload an Image")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
+            Image(uiImage: imageInBox).resizable().frame(width:375,height:450).aspectRatio(contentMode: .fill).border(Color.blue, width: 1).clipped()
+            
+            Text("Select Image With").foregroundColor(Color.blue)
+            HStack {
                 Button(action: {
-                    self.uploadSelectedImage(image: self.imageInBox)
+                    self.isShowingImagePicker.toggle()
+                    self.camera = true
                 }, label: {
-                    Text("Upload to S3").foregroundColor(Color.white)
+                    Image(systemName: "camera")
+                    Text("Camera")
+                }).sheet(isPresented: self.$isShowingImagePicker, content:{ ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox, camera: self.$camera)
                 })
-                    .padding().font(.system(size: 20))
-                    .background(/*@START_MENU_TOKEN@*/Color.blue/*@END_MENU_TOKEN@*/).cornerRadius(50)
-                DownloadView(key: self.$key)
-                //Button(self.uploadSuccess == "" ? "" : "Cick here to download") {UIApplication.shared.open(URL(string: self.cflink + self.key)!)}
-                //Button(action: {
-                //    self.imageInBox = UIImage()
-                //    self.uploadSuccess = ""
-                //    self.key = ""
-                //}, label: {
-                //    Text("Reset").foregroundColor(Color.red)
-                //})
-                //Spacer()
+                Button(action: {
+                    self.isShowingImagePicker.toggle()
+                    self.camera = false
+                }, label: {
+                    Image(systemName: "photo")
+                    Text("Photo Gallery")
+                }).sheet(isPresented: self.$isShowingImagePicker, content:{ ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox, camera: self.$camera)
+                })
             }
+            Spacer()
+            Button(action: {
+                self.uploadSelectedImage(image: self.imageInBox)
+            }, label: {
+                Text("Upload to S3").foregroundColor(Color.white)
+            })
+                .padding().font(.system(size: 20))
+                .background(/*@START_MENU_TOKEN@*/Color.blue/*@END_MENU_TOKEN@*/).cornerRadius(50)
+            Text(self.uploadSuccess != "" || self.uploadSuccess != "yay" ? "" : self.uploadSuccess)
+            Button(action: {
+                self.imageInBox = UIImage()
+                self.uploadSuccess = ""
+                self.key = ""
+            }, label: {
+                Text("Reset").foregroundColor(Color.red)
+            })
+            Spacer()
         }
+        
     }
     
     func uploadSelectedImage(image : UIImage) {
         self.uploadLoading.toggle()
         self.uploadSuccess = ""
         
-        let key = NSUUID().uuidString + ".jpeg"
-        self.key = key
+        let key = "picture/" + NSUUID().uuidString + ".jpeg"
+        let cflink = "https://d37crjhbub9zgu.cloudfront.net/public/"
         
         guard let data = image.jpegData(compressionQuality: 0.75) else { return }
         
@@ -87,15 +97,44 @@ struct ScanView: View {
             switch event {
             case .success(let data):
                 print("Completed: \(data)")
-                self.uploadSuccess = "Upload success!"
+                self.lambdaHandler(cflink: cflink + key)
             case .failure(let storageError):
                 print("Failed: \(storageError.errorDescription). \(storageError.recoverySuggestion)")
                 self.uploadSuccess = "Uh oh there's been an error: " + storageError.errorDescription
+                self.uploadLoading.toggle()
             }
-            self.uploadLoading.toggle()
         })
     }
     
+    struct Response: Codable {
+        var statusCode : Int
+        var key : String
+        var body : String
+    }
+    
+    func lambdaHandler(cflink : String) {
+        let lambda = "https://xo2hfza854.execute-api.us-east-1.amazonaws.com/prod/upload-to-s3?file="
+        print(lambda + cflink)
+        let url = URL(string: lambda + cflink)!
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            if let data = data {
+                if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
+                    // we have good data – go back to the main thread
+                    DispatchQueue.main.async {
+                        // update the key of the tex file
+                        self.key = decodedResponse.key
+                    }
+                    self.uploadSuccess = "yay"
+                    self.uploadLoading.toggle()
+                    // everything is good, so we can exit
+                    return
+                }
+            }
+            // if we're still here it means there was a problem
+            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
+        }
+        task.resume()
+    }
 }
 
 struct ScanView_Previews: PreviewProvider {

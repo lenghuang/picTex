@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DownloadView: View {
     @Binding var key: String
-    var cflink = "https://d37crjhbub9zgu.cloudfront.net/public/"
+    var cflink = "https://d37crjhbub9zgu.cloudfront.net/"
     
     var body: some View {
         Button("Cick here to download") {UIApplication.shared.open(URL(string: self.cflink + self.key)!)}
