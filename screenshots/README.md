@@ -1,5 +1,7 @@
 ## Screenshots
 
+[See this in action here!](http://www.youtube.com/watch?v=IQwyBaEmlQI)
+
 | Initial Loading View | Landing View  |
 | :------------------: | :-----------: |
 |   ![](splash.PNG)    | ![](land.PNG) |

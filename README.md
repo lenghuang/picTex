@@ -4,6 +4,8 @@
 
 This is a full-stack SwiftUI application developed with the AWS Amplify framework to deploy a PyTorch CNN in the cloud. Submitted for the [Global PyTorch Summer 2020 Hacakthon](https://devpost.com/software/pictex). Worked on by Len Huang, Erica Chiang, and Zach Nowak.
 
+Code for the SwiftUI iOS App can be found in the [`pictex`](https://github.com/lenghuang/picTex/tree/master/pictex) directory. Code for training the CNN with PyTorch, image object detection, and LaTeX conversion can be found in [`textDetectModel`](https://github.com/lenghuang/picTex/tree/master/textDetectModel) directory.
+
 View our [demo video](http://www.youtube.com/watch?v=IQwyBaEmlQI) here.
 
 ## Reflections:
