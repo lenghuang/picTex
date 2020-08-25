@@ -2,13 +2,13 @@
 
 def arrayToTxt(page):
 
-    texFile = open("MyFile.txt", "w")
+    #texFile = open("MyFile.txt", "w")
 
     docStart = """\\documentclass{article}
 \\usepackage[utf8]{inputenc}
 \\begin{document}\n"""
 
-    texFile.write(docStart)
+    #texFile.write(docStart)
 
     commands = {
                 'cong': '\\cong',
@@ -102,15 +102,15 @@ def arrayToTxt(page):
             else: # some other ASCII-representable symbol
                 texLine += "\\"+symbol + " "
         if mathMode:
-            texFile.write("$" + texLineMath + "$")
+            #texFile.write("$" + texLineMath + "$")
             docStart += "\t $" + texLineMath + "$"
         else:
-            texFile.write(texLine)
+            #texFile.write(texLine)
             docStart += "\t" + texLine
-        texFile.write(" \\\\ \n")
+        #texFile.write(" \\\\ \n")
         docStart += " \\\\ \n"
 
-    texFile.write("\n\\end{document}")
-    texFile.close()
+    #texFile.write("\n\\end{document}")
+    #texFile.close()
     docStart += "\n\\end{document}"
     return docStart
