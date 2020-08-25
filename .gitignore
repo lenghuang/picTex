@@ -9,3 +9,5 @@ our_images_final
 # vscode
 .vscode
 
+# Terraform 
+terraform/.terraform
