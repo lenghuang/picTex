@@ -14,12 +14,13 @@ import AmplifyPlugins
 struct ContentView: View {
     
     @State var isShowingImagePicker = false
+    @State var camera = false
     @State var imageInBox = UIImage()
     @State var uploadLoading = false
     @State var uploadSuccess = ""
     @State var key = ""
     
-    var cflink = "https://d37crjhbub9zgu.cloudfront.net/public/"
+    var cflink = "https://d37crjhbub9zgu.cloudfront.net/public/picture"
     
     var body: some View {
         LoadingView(isShowing: self.$uploadLoading) {
@@ -34,21 +35,28 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-            //            Image(uiImage: imageInBox).resizable().aspectRatio(contentMode: .fit).frame(width:375,height:450).border(Color.black, width: 1).clipped()
-            GeometryReader { geo in
-                VStack{
-                    Image(uiImage: self.imageInBox)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9).border(Color.blue, width: 1)
-                    Button(action: {
-                        self.isShowingImagePicker.toggle()
-                    }, label: {
-                        Text("Select Image")
-                    }).sheet(isPresented: self.$isShowingImagePicker, content:{ ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox)
-                    })
-                }
+            Image(uiImage: imageInBox).resizable().frame(width:375,height:450).aspectRatio(contentMode: .fill).border(Color.blue, width: 1).clipped()
+            
+            Text("Select Image With").foregroundColor(Color.blue)
+            HStack {
+                Button(action: {
+                    self.isShowingImagePicker.toggle()
+                    self.camera = true
+                }, label: {
+                    Image(systemName: "camera")
+                    Text("Camera")
+                }).sheet(isPresented: self.$isShowingImagePicker, content:{ ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox, camera: self.$camera)
+                })
+                Button(action: {
+                    self.isShowingImagePicker.toggle()
+                    self.camera = false
+                }, label: {
+                    Image(systemName: "photo")
+                    Text("Photo Gallery")
+                }).sheet(isPresented: self.$isShowingImagePicker, content:{ ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox, camera: self.$camera)
+                })
             }
+            Spacer()
             Button(action: {
                 self.uploadSelectedImage(image: self.imageInBox)
             }, label: {
@@ -72,7 +80,7 @@ struct ContentView: View {
         self.uploadLoading.toggle()
         self.uploadSuccess = ""
         
-        let key = NSUUID().uuidString + ".jpeg"
+        let key = "picture/" + NSUUID().uuidString + ".jpeg"
         self.key = key
         
         guard let data = image.jpegData(compressionQuality: 0.75) else { return }

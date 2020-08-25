@@ -12,9 +12,15 @@ struct ImagePickerView: UIViewControllerRepresentable {
     
     @Binding var isPresented: Bool
     @Binding var selectedImage: UIImage
+    @Binding var camera: Bool
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIViewController {
         let controller = UIImagePickerController()
+        if camera {
+            controller.sourceType = .camera
+        } else {
+            controller.sourceType = .photoLibrary
+        }
         controller.delegate = context.coordinator
         return controller
     }
