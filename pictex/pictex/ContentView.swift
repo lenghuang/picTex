@@ -20,7 +20,7 @@ struct ContentView: View {
     @State var uploadSuccess = ""
     @State var key = ""
     
-    var cflink = "https://d37crjhbub9zgu.cloudfront.net/public/"
+    var cflink = "https://d37crjhbub9zgu.cloudfront.net/public/picture"
     
     var body: some View {
         LoadingView(isShowing: self.$uploadLoading) {
