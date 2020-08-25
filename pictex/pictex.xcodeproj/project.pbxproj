@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F3D65F5B67E4C2D8F352DFA /* Todo+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8BA392894643A0A05CECCE /* Todo+Schema.swift */; };
 		2BEE291DB730439186AE877F /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80BE858444405AABBAA1BE /* Priority.swift */; };
+		3B80776C24F4D0C00074D90B /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80776B24F4D0C00074D90B /* DownloadView.swift */; };
 		40A65C538F494B1390AA1563 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 84E458DB49454AF8956BAEB0 /* awsconfiguration.json */; };
 		510615BBF0BE7251C0D77AED /* Pods_pictex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBFF8FCF4E03EF77223AF7C9 /* Pods_pictex.framework */; };
 		79FAA7EA40797422C61FEA14 /* Pods_pictexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13A48B945FF39EDF388EA75 /* Pods_pictexTests.framework */; };
@@ -62,6 +63,7 @@
 		09BA181D17464F8EBCB1FEBB /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		0AED4E0A30B645388CDF8800 /* schema.graphql */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text; name = schema.graphql; path = amplify/backend/api/amplifyDatasource/schema.graphql; sourceTree = "<group>"; };
 		300F851BC9A630048FE9785E /* Pods_pictex_pictexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pictex_pictexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B80776B24F4D0C00074D90B /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		483CE06C9CE4453B8A077A5D /* Todo.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = Todo.swift; path = amplify/generated/models/Todo.swift; sourceTree = "<group>"; };
 		4EA0667E8C22B800D94736E0 /* Pods-pictexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pictexTests.release.xcconfig"; path = "Target Support Files/Pods-pictexTests/Pods-pictexTests.release.xcconfig"; sourceTree = "<group>"; };
 		5C80BE858444405AABBAA1BE /* Priority.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = Priority.swift; path = amplify/generated/models/Priority.swift; sourceTree = "<group>"; };
@@ -201,16 +203,17 @@
 				BFAEBAA824ECD2A6008458A8 /* SceneDelegate.swift */,
 				BFAEBAAA24ECD2A6008458A8 /* ContentView.swift */,
 				BFAB222424F03A9C0015C868 /* LoadingView.swift */,
-				BFF3FB1924EF824A00AA4C57 /* LandingView.swift */,
 				BFF3E52A24ECE48E009E7AB4 /* Coordinator.swift */,
 				BFAB222224F036930015C868 /* ActivityIndicator.swift */,
 				BFAB222024F020970015C868 /* ImagePickerView.swift */,
+				BF3DCB5224F43E45006AE4ED /* SplashView.swift */,
 				BF3DCB5524F43E45006AE4ED /* CircleImage.swift */,
+				BFF3FB1924EF824A00AA4C57 /* LandingView.swift */,
 				BF3DCB5624F43E45006AE4ED /* InformationContainerView.swift */,
 				BF3DCB5324F43E45006AE4ED /* InformationDetailView.swift */,
 				BF3DCB5424F43E45006AE4ED /* LandingTitleView.swift */,
 				BF3DCB5124F43E45006AE4ED /* ScanView.swift */,
-				BF3DCB5224F43E45006AE4ED /* SplashView.swift */,
+				3B80776B24F4D0C00074D90B /* DownloadView.swift */,
 				BFAEBAAC24ECD2AC008458A8 /* Assets.xcassets */,
 				BFAEBAB124ECD2AC008458A8 /* LaunchScreen.storyboard */,
 				BFAEBAB424ECD2AC008458A8 /* Info.plist */,
@@ -527,6 +530,7 @@
 				BFAB222324F036940015C868 /* ActivityIndicator.swift in Sources */,
 				BFAEBAAB24ECD2A6008458A8 /* ContentView.swift in Sources */,
 				B037FC1F234F4D31BB448F03 /* AmplifyModels.swift in Sources */,
+				3B80776C24F4D0C00074D90B /* DownloadView.swift in Sources */,
 				2BEE291DB730439186AE877F /* Priority.swift in Sources */,
 				BF3DCB5A24F43E45006AE4ED /* LandingTitleView.swift in Sources */,
 				C339391D8DC74AF9AD82BDF3 /* Todo.swift in Sources */,
