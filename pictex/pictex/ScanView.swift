@@ -39,9 +39,9 @@ struct ScanView: View {
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-            Image(uiImage: imageInBox).resizable().frame(width:375,height:450).aspectRatio(contentMode: .fill).border(Color.blue, width: 1).clipped()
+            Image(uiImage: imageInBox).resizable().frame(width:375,height:450).aspectRatio(contentMode: .fill).border(Color.green, width: 1).clipped()
             
-            Text("Select Image With").foregroundColor(Color.blue)
+            Text("Select Image With").foregroundColor(Color.green)
             HStack {
                 Button(action: {
                     self.isShowingImagePicker.toggle()
@@ -59,7 +59,7 @@ struct ScanView: View {
                     Text("Photo Gallery")
                 }).sheet(isPresented: self.$isShowingImagePicker, content:{ ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox, camera: self.$camera)
                 })
-            }
+            }.foregroundColor(Color.green)
             Spacer()
             Button(action: {
                 self.uploadSelectedImage(image: self.imageInBox)
@@ -67,7 +67,7 @@ struct ScanView: View {
                 Text("Upload to S3").foregroundColor(Color.white)
             })
                 .padding().font(.system(size: 20))
-                .background(/*@START_MENU_TOKEN@*/Color.blue/*@END_MENU_TOKEN@*/).cornerRadius(50)
+                .background(Color.green).cornerRadius(50)
             Text(self.uploadSuccess != "" || self.uploadSuccess != "yay" ? "" : self.uploadSuccess)
             Button(action: {
                 self.imageInBox = UIImage()
