@@ -3,7 +3,7 @@
 ### Inspiration
 As college students who often typeset assignments in LaTeX, we became interested in the possibility of creating an app that converts a handwritten document into a LaTeX file. We were really interested in learning more about computer vision and app development, so we decided to try implementing the idea and called it PicTeX. 
 
-### What It Does
+### How We Created It
 We created PicTeX by using an RCNN model to preprocess images for regions of interest and then use a classifier to identify each symbol. We used PyTorch to train our classifier and S3 buckets to integrate the object detection model functionality into an iOS app. 
 
 ### Challenges We Ran Into
