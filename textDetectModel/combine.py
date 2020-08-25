@@ -1,14 +1,6 @@
 from objectDetection import objectDetection
 from predict import textPredict
-from PIL import Image
-from torchvision import transforms
-import requests
-from io import BytesIO
-import time
 
-# https://pytorch.org/docs/stable/torchvision/transforms.html
-# Interpolate?
-# Transforms for prepping data to fit our model
 
 def outputText(url, local=True):
     """
@@ -28,7 +20,7 @@ def outputText(url, local=True):
     #  5: height,
     #  6: width + height,
     #  7: img]
-    bounding_list = objectDetection(url)
+    bounding_list = objectDetection(url, debug=True)
 
     page = []
     for row in bounding_list:
@@ -50,5 +42,6 @@ def outputText(url, local=True):
     return page
 
 if __name__ == "__main__":
-    outputText("examples/IMG_7311.jpg")
+    print(outputText("https://i.stack.imgur.com/VfmOK.png"))
+    #print(outputText("examples/n.jpeg"))
 

@@ -1,11 +1,13 @@
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.init as init
+
 from classes import classes
 
 
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
+        self.relu = nn.ReLU(inplace=False)
         self.conv11 = nn.Conv2d(in_channels=1,
                                 out_channels=20, kernel_size=5, padding=2)
         self.conv12 = nn.Conv2d(20, 20, 5, padding=2)
@@ -31,23 +33,40 @@ class Net(nn.Module):
         self.soft = nn.Softmax(dim=1)
 
     def forward(self, x):
-        x = F.relu(self.conv11(x))
-        x = F.relu(self.conv12(x))
+        x = self.relu(self.conv11(x))
+        x = self.relu(self.conv12(x))
         x = self.batch1(x)
         x = self.pool1(x)
-        x = F.relu(self.conv21(x))
-        x = F.relu(self.conv22(x))
+        x = self.relu(self.conv21(x))
+        x = self.relu(self.conv22(x))
         x = self.batch2(x)
         x = self.pool2(x)
-        x = F.relu(self.conv31(x))
-        x = F.relu(self.conv32(x))
+        x = self.relu(self.conv31(x))
+        x = self.relu(self.conv32(x))
         x = self.batch3(x)
         x = self.pool3(x)
         x = x.view(-1, 80 * 4 * 4)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
+        x = self.relu(self.fc1(x))
+        x = self.relu(self.fc2(x))
         x = self.fc3(x)
         x = self.dropfc(x)
         x = self.soft(x)
         return x
+    def _initialize_weights(self):
+        init.orthogonal_(self.conv11.weight, init.calculate_gain('relu'))
+        init.orthogonal_(self.conv12.weight, init.calculate_gain('relu'))
+
+        init.orthogonal_(self.conv21.weight, init.calculate_gain('relu'))
+        init.orthogonal_(self.conv22.weight, init.calculate_gain('relu'))
+
+        init.orthogonal_(self.conv31.weight, init.calculate_gain('relu'))
+        init.orthogonal_(self.conv32.weight, init.calculate_gain('relu'))
+
+        init.orthogonal_(self.fc1, init.calculate_gain('relu'))
+        init.orthogonal_(self.fc2, init.calculate_gain('relu'))
+        init.orthogonal_(self.fc3)
+
+
+
+
 

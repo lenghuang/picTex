@@ -1,22 +1,3 @@
-# from collections import OrderedDict
-# import numpy as np
-# import torch
-# import os
-#
-# data_dir = "./final/"
-#
-# classes = os.listdir(data_dir)
-# num_classes = len(classes)
-#
-# classes_encode, classes_decode = {}, {}
-# for i, name in enumerate(classes):
-#     classes_encode[name] = i
-#     classes_decode[i] = name
-#
-# encode_dict, decode_dict = OrderedDict(classes_encode), OrderedDict(classes_encode)
-#
-# classes = classes_decode
-
 classes = {
  0: '(',
  1: ')',

@@ -1,43 +1,19 @@
 import cv2
-from scipy.optimize import curve_fit, minimize
 import numpy as np
 import collections
 from PIL import Image
+from urllib.request import urlopen
+import numpy as np
 
 def getAvgWhite(img_bw, debug=True):
     total_pixel = sorted(img_bw.flatten())
-    total_pixel = list(filter(lambda num: num != 0 and num != 255,
+    total_pixel = list(filter(lambda num: num > 130,
                               total_pixel))
-    pixel_dict = collections.Counter(total_pixel)
-    pixel_x = []
-    hist_y = []
+    std = np.std(total_pixel)
+    mean = np.mean(total_pixel)
 
-    for grey_scale_value in sorted(pixel_dict.keys()):
-        pixel_x.append(grey_scale_value)
-        hist_y.append(pixel_dict[grey_scale_value])
-
-    def gauss(x, mu, sigma, A):
-        return A * np.exp(-(x - mu) ** 2 / 2 / sigma ** 2)
-
-    def bimodal(x, mu1, sigma1, A1, mu2, sigma2, A2):
-        return gauss(x, mu1, sigma1, A1) + gauss(x, mu2, sigma2, A2)
-
-    max_val = max(hist_y)
-
-    expected = (130, 40, max_val, 170, 20, max_val)
-    bounds = ([ 100.,   0.,      0., 150.,   0.,      0.],
-              [ 250., 255., max_val, 255., 255., max_val])
-
-    params, cov = curve_fit(bimodal, pixel_x, hist_y, expected,
-                            bounds=bounds, maxfev=10800)
-    func = lambda x: bimodal(x, *params)
-
-    params = list(params)
-    max_hump = params.index(max(params[1], params[4]))
-    mean = params[max_hump-1]
-    std  = params[max_hump]
-    thresh_min = mean - 2*std
-    thresh_max = mean + 2*std
+    thresh_min = mean-std
+    thresh_max = mean+std
     return thresh_min, thresh_max, mean, std
 
 def convert(image, debug=False):
@@ -78,8 +54,7 @@ def convert(image, debug=False):
                                         interpolation=cv2.INTER_LINEAR_EXACT)
 
 
-    thresh_min = mean - 4*std
-    #print(thresh_min, mean, std)
+    thresh_min = mean - 2*std
     ret, img = cv2.threshold(max_page_bw, thresh_min, 255, cv2.THRESH_BINARY_INV)
 
 
@@ -92,10 +67,13 @@ def convert(image, debug=False):
 
 
 if __name__ == "__main__":
+
     urls = [
-            "examples/IMG_7311.jpg",
+            "https://i.stack.imgur.com/VfmOK.png",
         ]
+
     for url in urls:
-        img = cv2.imread(url)  # local repository
+        img = Image.open(urlopen(url))
+        img = np.array(img)
         img = cv2.resize(img, dsize=(1050, 1485), interpolation=cv2.INTER_AREA)
-        convert(img, debug=False)
+        convert(img, debug=True)

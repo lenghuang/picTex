@@ -2,22 +2,14 @@ from os.path import exists
 from os import mkdir
 from os import listdir
 from urllib.request import urlopen
-
+import string
 import argparse
+
 import cv2
-from matplotlib import cm
 import numpy as np
 from PIL import Image
-import time
 
-global thresh
-global erode
-global dilate
-
-import string
-
-
-
+from clean_final import convert
 
 
 def objectDetection(url, file_char=None, debug=False):
@@ -44,7 +36,7 @@ def objectDetection(url, file_char=None, debug=False):
         """
         Remove the background, lines, and threshold the image
         """
-        thresh = convert(img)
+        thresh = convert(img, debug=True)
 
         if file_char is not None:
             """
@@ -61,10 +53,11 @@ def objectDetection(url, file_char=None, debug=False):
         """
         Find the Contours.
         """
-        # contours, hierarchy = cv2.findContours(thresh, 2, 1)
+
         contours, hierarchy = cv2.findContours(
             thresh, mode=cv2.RETR_LIST, method=cv2.CHAIN_APPROX_NONE
         )
+        temp = thresh.copy()
         print("THERE ARE %d POSSIBLE OBJECTS" % len(contours))
         num = 0
         bboxs = []
@@ -72,8 +65,8 @@ def objectDetection(url, file_char=None, debug=False):
             area = cv2.contourArea(cnt)
             x, y, w, h = cv2.boundingRect(cnt)
             buffer = 10
-            if area > 130 and y > buffer and x > buffer:
-                im2 = temp1[y - buffer:y + h + buffer,
+            if area > 10 and y > buffer and x > buffer:
+                im2 = temp[y - buffer:y + h + buffer,
                       x - buffer:x + w + buffer]
                 im2 = cv2.resize(im2, dsize=(32, 32),
                                  interpolation=cv2.INTER_LINEAR_EXACT)
@@ -166,7 +159,7 @@ def get_files(exclude_list=[]):
         cut_up_macro(letter)
 
 if __name__ == "__main__":
-    alphabet = list(string.ascii_lowercase)
+    # alphabet = list(string.ascii_lowercase)
     # numbers = [str(i) for i in range(10)]
     """
     Creating a data set from macro_image
