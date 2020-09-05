@@ -12,7 +12,7 @@ import numpy as np
 
 path = os.path.dirname(os.path.realpath(__file__))
 #model_path = path+"/models/pictex_100.pt"
-model_path = path+"/models/pictexHELP_100.pt"
+model_path = path+"/models/pictexHELP_103.pt"
 model = Net()
 model.load_state_dict(torch.load(model_path))
 model.cpu()
@@ -24,11 +24,11 @@ output_torch = model(dummy_input)
 
 torch.onnx.export(model,
                   dummy_input,
-                  "testing4.onnx",
+                  "testing6.onnx",
                   export_params=True,
                   verbose=True)
 
-graph = onnx.load("testing4.onnx")
+graph = onnx.load("testing6.onnx")
 onnx.checker.check_model(graph)
 
 """
@@ -40,7 +40,7 @@ print(
 )
 """
 import onnxruntime as nxrun
-sess = nxrun.InferenceSession("testing4.onnx")
+sess = nxrun.InferenceSession("testing6.onnx")
 
 input_name = (sess.get_inputs()[0].name)
 ximg = np.random.randn(1,1,32,32).astype(np.float32)

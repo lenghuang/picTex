@@ -1,4 +1,4 @@
-from objectDetection import objectDetection
+from objectDetectionTest import objectDetection
 from predict import textPredict
 from array_to_txt import arrayToTxt
 
@@ -23,14 +23,15 @@ def outputText(url, local=True):
     #  8: area,
     #  9: idx,
     #  10: children]
-    bounding_list = objectDetection(url, debug=False)
+    bounding_list = objectDetection(url, debug=True)
 
     page = []
     for row in bounding_list:
         temp_row = []
         for obj in row:
             img = obj[7]
-            character_list = textPredict(img, is_path = False)
+            img.show()
+            character_list = textPredict(img, is_path=False)
             center_x = obj[0]
             center_y = obj[1]
             width = obj[4]
@@ -38,6 +39,7 @@ def outputText(url, local=True):
             char = character_list
             obj_temp = [center_x, center_y, width, height, char]
             temp_row.append(obj_temp)
+        print("NEW ROW")
         page.append(temp_row)
 
     # If you wanted the fourth row, first obj's character

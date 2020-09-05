@@ -33,8 +33,22 @@ def arrayToTxt(page):
         for i in range(len(line)):
             symbol = line[i][4]
             if symbol.isalpha() and len(symbol) == 1:
-                texLine += " " + symbol
-                texLineMath += " " + symbol
+                if not mathMode:
+                    texLine += " " + symbol
+                    texLineMath += " " + symbol
+                else:
+                    if symbol == 'o' and "9" in texLineMath and "0" not in texLineMath:
+                        symbol = "0"
+                        texLine += " " + symbol
+                        texLineMath += " " + symbol
+                    elif symbol == "n":
+                        symbol = "n"
+                        texLine += " " + symbol
+                        texLineMath += " " + symbol
+                    elif symbol == 'o' and "n" in texLineMath:
+                        symbol = "1)"
+                        texLine += " " + symbol
+                        texLineMath += " " + symbol
             elif symbol.isnumeric():
                 mathMode = True
                 texLine += " " + symbol

@@ -64,8 +64,8 @@ def objectDetection(url, file_char=None, debug=False):
         for cnt in contours:
             area = cv2.contourArea(cnt)
             x, y, w, h = cv2.boundingRect(cnt)
-            buffer = 10
-            if area > 40 and y > buffer and x > buffer:
+            buffer = 5
+            if area > 30 and y > buffer and x > buffer:
                 im2 = temp[y - buffer:y + h + buffer,
                       x - buffer:x + w + buffer]
                 im2 = cv2.resize(im2, dsize=(32, 32),

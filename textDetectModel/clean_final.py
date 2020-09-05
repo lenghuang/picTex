@@ -23,7 +23,6 @@ def convert(image, debug=False):
         2. Get the average pixel color
         2. Group the white pixel together and find the largest contour
     """
-
     img_bw = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     thresh_min, thresh_max, mean, std = getAvgWhite(img_bw)
     thresh_min = 0 if thresh_min < 0 else int(thresh_min)
@@ -76,4 +75,5 @@ if __name__ == "__main__":
         img = Image.open(urlopen(url))
         img = np.array(img)
         img = cv2.resize(img, dsize=(1050, 1485), interpolation=cv2.INTER_AREA)
-        convert(img, debug=True)
+        img = convert(img, debug=True)
+        print(img.shape)

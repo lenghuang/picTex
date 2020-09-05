@@ -4,7 +4,7 @@ import requests
 from io import BytesIO
 import cv2
 import onnxruntime as nxrun
-from classes import classes
+from classesTest import classes
 
 
 
@@ -25,7 +25,7 @@ def transform(img):
 
 
 def textPredict(image_path, local=False, is_path = True):
-    sess = nxrun.InferenceSession("testing4.onnx")
+    sess = nxrun.InferenceSession("testing6.onnx")
     input_name = (sess.get_inputs()[0].name)
 
     if is_path:
@@ -52,7 +52,7 @@ def textPredict(image_path, local=False, is_path = True):
         #     print(f"{classes[int(index)]} with value: {values[0][i]:>20}")
         return classes[np.argmax(outputs)]
     else:
-        image_path.show()
+        #image_path.show()
         img = image_path.convert('RGB')
         image = np.array(img)
         image = np.expand_dims(transform(image), axis=0)  # batch size of 1
@@ -73,12 +73,13 @@ if __name__ == "__main__":
     # local image
     tempchar = '0'
     image_path = "./final/" + tempchar + '/' + tempchar + "_fig_8.jpg"
+    image_path = "./hasy/2/v2-20142.png"
     print(textPredict(image_path, True))
     # number 1
-    #textPredict(
+    # textPredict(
     #    "https://printables.space/files/uploads/download-and-print/large
-    #    -printable-numbers/1-a4-1200x1697.jpg"
-    #
+    #    -printable-numbers/1-a4-1200x1697.jpg",
+    # True)
     # # number 5
     # textPredict(
     #     "https://gamedata.britishcouncil.org/sites/default/files/attachment/number-5_2.jpg",
