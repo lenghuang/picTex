@@ -17,11 +17,11 @@ struct LandingView: View {
                 LandingTitleView()
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
-
+                
                 InformationContainerView()
-
+                
                 Spacer(minLength: 30)
-
+                
                 Button(action: {
                     let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
@@ -32,7 +32,7 @@ struct LandingView: View {
                 }
                 .padding()
                 .accentColor(.white)
-                .background(/*@START_MENU_TOKEN@*/Color.green/*@END_MENU_TOKEN@*/)
+                .background(/*@START_MENU_TOKEN@*/Color.green/*@END_MENU_TOKEN@*/).cornerRadius(50)
             }
         }
     } 
