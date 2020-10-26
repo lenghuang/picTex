@@ -71,9 +71,9 @@ def textPredict(image_path, local=False, is_path = True):
 
 if __name__ == "__main__":
     # local image
-    tempchar = '0'
-    image_path = "./final/" + tempchar + '/' + tempchar + "_fig_8.jpg"
-    image_path = "./hasy/2/v2-20142.png"
+    tempchar = 'n'
+    image_path = "./final_imgs/" + tempchar + "/n35.png"
+    #image_path = "./hasy/2/v2-20142.png"
     print(textPredict(image_path, True))
     # number 1
     # textPredict(

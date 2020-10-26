@@ -47,6 +47,6 @@ def outputText(url, local=True):
     return arrayToTxt(page)
 
 if __name__ == "__main__":
-    #print(outputText("https://i.stack.imgur.com/VfmOK.png"))
+    #print(outputText("https://i.stack.imgur.com/A9jPo.png"))
     print(outputText("examples/IMG_5496.jpeg"))
-
+    #print(outputText("final_imgs/n/n35.png"))
